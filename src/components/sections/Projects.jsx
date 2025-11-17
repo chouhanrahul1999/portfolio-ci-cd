@@ -25,7 +25,7 @@ const Projects = () => {
              icon2={<FaNodeJs size={24} color="ffffff" />}
              icon3={<SiMongodb size={24} color="00684A" />}
              icon4={<DiNodejs size={24} color="38BDF8" />}
-             liveUrl="https://crtd.in/"
+             projectId="crtd-technology"
              />
             <JobCard img="/src/assets/excelidraw.svg" 
              h1={"Excelidraw- A Whiteboard App"}
@@ -34,7 +34,7 @@ const Projects = () => {
              icon2={<BiLogoTypescript size={24} color="3178C6" />}
              icon3={<BiLogoPostgresql size={24} color="38BDF8" />}
              icon4={<SiTurborepo size={24} color="#FF6B6B" />} 
-             liveUrl="https://github.com/chouhanrahul1999/Exceliodraw"
+             projectId="excelidraw"
              />
             <JobCard img="/src/assets/paytm.svg" 
              h1={"Digital payment application"}
@@ -43,7 +43,7 @@ const Projects = () => {
              icon2={<BiLogoTypescript size={24} color="3178C6" />}
              icon3={<BiLogoPostgresql size={24} color="38BDF8" />}
              icon4={<SiPrisma size={24} color="38BDF8" />} 
-             liveUrl="https://github.com/chouhanrahul1999/paytm"
+             projectId="digital-payment"
              />
             <JobCard img="/src/assets/brainly.svg" 
              h1={"Brainly - Knowledge Hub"}
@@ -52,7 +52,7 @@ const Projects = () => {
              icon2={<BiLogoTypescript size={24} color="3178C6" />}
              icon3={<SiMongodb size={24} color="00684A" />}
              icon4={<SiExpress size={24} color="38BDF8" />} 
-             liveUrl="https://github.com/chouhanrahul1999/brainly"
+             projectId="brainly"
              />
             </div>
           </div>

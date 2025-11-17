@@ -1,0 +1,10 @@
+This folder will contain project demo videos:
+- crtd-demo.mp4
+- excelidraw-demo.mp4
+- paytm-demo.mp4
+- brainly-demo.mp4
+
+For videos larger than 25MB, use Git LFS:
+git lfs install
+git lfs track "*.mp4"
+git add .gitattributes

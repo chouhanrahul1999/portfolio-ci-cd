@@ -1,14 +1,15 @@
 import './App.css'
+import { Routes, Route } from 'react-router-dom'
 import Hero from './components/sections/Hero'
 import Projects from './components/sections/Projects'
 import Experience from './components/sections/Experince'
 import Contact from './components/sections/Contact'
 import About from './components/sections/About'
+import ProjectDetail from './components/pages/ProjectDetail'
+import { projects } from './data/projects'
 
 function App() {
-  
-
-  return (
+  const Portfolio = () => (
     <>
       <Hero />
       <About />
@@ -16,6 +17,13 @@ function App() {
       <Experience />
       <Contact />
     </>
+  )
+
+  return (
+    <Routes>
+      <Route path="/" element={<Portfolio />} />
+      <Route path="/project/:projectId" element={<ProjectDetail projects={projects} />} />
+    </Routes>
   )
 }
 

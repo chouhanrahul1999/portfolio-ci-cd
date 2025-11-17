@@ -1,12 +1,13 @@
 import { ArrowUpRight } from "lucide-react"
-import { RollerCoasterIcon } from "lucide-react"
+import { useNavigate } from "react-router-dom"
 
 
-const JobCard = ({img, h1, p, icon1, icon2, icon3, icon4, liveUrl}) => {
-    const handleLiveSiteClick = () => {
-        if (liveUrl) {
-            window.open(liveUrl, '_blank', 'noopener,noreferrer');
-        }
+const JobCard = ({img, h1, p, icon1, icon2, icon3, icon4, projectId}) => {
+    const navigate = useNavigate();
+    
+    const handleViewProject = () => {
+        console.log('Navigating to project:', projectId);
+        navigate(`/project/${projectId}`);
     };
 
     return (
@@ -25,9 +26,9 @@ const JobCard = ({img, h1, p, icon1, icon2, icon3, icon4, liveUrl}) => {
                 </div>
                 <div 
                     className="flex flex-row text-white gap-2 cursor-pointer hover:text-[#CBACF9] transition-colors duration-200"
-                    onClick={handleLiveSiteClick}
+                    onClick={handleViewProject}
                 >
-                 Check live Site
+                 View Details
                  <span><ArrowUpRight /></span>
                 </div>
             </div>
