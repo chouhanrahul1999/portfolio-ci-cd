@@ -3,7 +3,7 @@ export const projects = [
     id: "crtd-technology",
     title: "CRTD Technology Web Application",
     description: "A comprehensive web application for CRTD Technology built with the MERN stack, featuring automated deployment through CI/CD pipeline.",
-    image: "/media/screenshots/crtd-homepage.png",
+    image: "/media/icons/crtd.svg",
     techStack: [
       { name: "React", iconType: "FaReact", color: "#38BDF8" },
       { name: "Node.js", iconType: "FaNodeJs", color: "#ffffff" },
@@ -74,7 +74,7 @@ export const projects = [
     id: "excelidraw",
     title: "Excelidraw - Real-time Collaborative Whiteboard",
     description: "A real-time collaborative whiteboard application with WebSocket support, built using modern full-stack technologies in a monorepo structure.",
-    image: "/media/screenshots/excelidraw-main.png",
+    image: "/media/icons/excelidraw.svg",
     techStack: [
       { name: "Next.js", iconType: "RiNextjsFill", color: "#FFFFFF" },
       { name: "TypeScript", iconType: "BiLogoTypescript", color: "#3178C6" },
@@ -145,7 +145,7 @@ export const projects = [
     id: "digital-payment",
     title: "Digital Payment Application",
     description: "A secure digital payment platform with P2P transfers, bank integration, and real-time transaction tracking built with modern web technologies.",
-    image: "/media/screenshots/paytm-main.png",
+    image: "/media/icons/paytm.svg",
     techStack: [
       { name: "Next.js", iconType: "RiNextjsFill", color: "#FFFFFF" },
       { name: "TypeScript", iconType: "BiLogoTypescript", color: "#3178C6" },
@@ -216,7 +216,7 @@ export const projects = [
     id: "brainly",
     title: "Brainly - Personal Knowledge Hub",
     description: "A knowledge management platform that organizes learning content from various sources into personalized knowledge bases with sharing capabilities.",
-    image: "/media/screenshots/brainly-main.png",
+    image: "/media/icons/brainly.svg",
     techStack: [
       { name: "React", iconType: "FaReact", color: "#38BDF8" },
       { name: "TypeScript", iconType: "BiLogoTypescript", color: "#3178C6" },

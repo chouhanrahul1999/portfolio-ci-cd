@@ -16,7 +16,7 @@ const ProjectDetail = ({ projects }) => {
 
   return (
     <div className="w-full bg-[#000319] min-h-screen">
-      <div className="bg-[url('/src/assets/grid-pattern.svg')] bg-cover bg-center bg-no-repeat w-full min-h-screen">
+      <div className="bg-[url('/media/icons/grid-pattern.svg')] bg-cover bg-center bg-no-repeat w-full min-h-screen">
         <ProjectHero project={project} />
 
         <div className="container mx-auto px-4">

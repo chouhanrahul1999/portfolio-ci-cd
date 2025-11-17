@@ -18,7 +18,7 @@ const Projects = () => {
             </div>
             <div className="grid lg:grid-cols-2 gap-10 lg:gap-8 pt-16">
 
-            <JobCard img="/src/assets/crtd.svg" 
+            <JobCard img="/media/icons/crtd.svg" 
              h1={"CRTD Technology Web Application"}
              p={"Developed and deployed a Web for CRTD Technology in MERN. Implemented backend in node-js, frontend using React, and database features using mongodb. Automated deployment on a VM using a CI/CD pipeline."}
              icon1={<FaReact size={24} color="38BDF8" />}
@@ -27,7 +27,7 @@ const Projects = () => {
              icon4={<DiNodejs size={24} color="38BDF8" />}
              projectId="crtd-technology"
              />
-            <JobCard img="/src/assets/excelidraw.svg" 
+            <JobCard img="/media/icons/excelidraw.svg" 
              h1={"Excelidraw- A Whiteboard App"}
              p={"Built Excelidraw, a real-time collaborative whiteboard app with HTTP and WebSocket backends, a Next.js frontend, and PostgreSQL using Prisma ORM. Managed the project in a Turborepo monorepo for efficient development."}
              icon1={<RiNextjsFill size={24} color="FFFFFF" />}
@@ -36,7 +36,7 @@ const Projects = () => {
              icon4={<SiTurborepo size={24} color="#FF6B6B" />} 
              projectId="excelidraw"
              />
-            <JobCard img="/src/assets/paytm.svg" 
+            <JobCard img="/media/icons/paytm.svg" 
              h1={"Digital payment application"}
              p={"A digital payment application built with Next.js, TypeScript, and PostgreSQL, featuring secure authentication, P2P transfers, and real-time transaction tracking and intrection with bank."}
              icon1={<RiNextjsFill size={24} color="FFFFFF" />}
@@ -45,7 +45,7 @@ const Projects = () => {
              icon4={<SiPrisma size={24} color="38BDF8" />} 
              projectId="digital-payment"
              />
-            <JobCard img="/src/assets/brainly.svg" 
+            <JobCard img="/media/icons/brainly.svg" 
              h1={"Brainly - Knowledge Hub"}
              p={"Brainly organizes learning content (YouTube/Twitter) into personal knowledge bases. Features dashboard with stats, content management, and sharing. Built with React, TypeScript, Node.js. Shows full-stack skills."}
              icon1={<FaReact size={24} color="38BDF8" />}
