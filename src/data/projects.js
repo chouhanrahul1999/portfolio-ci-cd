@@ -1,15 +1,12 @@
+import { crtdTechStack, zapierTechStack, excelidrawTechStack, digitalWalletTechStack, brainlyTechStack } from './techStacks.js';
+
 export const projects = [
   {
     id: "crtd-technology",
     title: "CRTD Technology Web Application",
     description: "A comprehensive web application for CRTD Technology built with the MERN stack, featuring automated deployment through CI/CD pipeline.",
     image: "/media/icons/crtd.svg",
-    techStack: [
-      { name: "React", iconType: "FaReact", color: "#38BDF8" },
-      { name: "Node.js", iconType: "FaNodeJs", color: "#ffffff" },
-      { name: "MongoDB", iconType: "SiMongodb", color: "#00684A" },
-      { name: "Express", iconType: "SiExpress", color: "#38BDF8" }
-    ],
+    techStack: crtdTechStack,
     features: [
       {
         title: "Responsive Design",
@@ -75,12 +72,7 @@ export const projects = [
     title: "Excelidraw - Real-time Collaborative Whiteboard",
     description: "A real-time collaborative whiteboard application with WebSocket support, built using modern full-stack technologies in a monorepo structure.",
     image: "/media/icons/excelidraw.svg",
-    techStack: [
-      { name: "Next.js", iconType: "RiNextjsFill", color: "#FFFFFF" },
-      { name: "TypeScript", iconType: "BiLogoTypescript", color: "#3178C6" },
-      { name: "PostgreSQL", iconType: "BiLogoPostgresql", color: "#38BDF8" },
-      { name: "Turborepo", iconType: "SiTurborepo", color: "#FF6B6B" }
-    ],
+    techStack: excelidrawTechStack,
     features: [
       {
         title: "Real-time Collaboration",
@@ -146,12 +138,7 @@ export const projects = [
     title: "Digital Payment Application",
     description: "A secure digital payment platform with P2P transfers, bank integration, and real-time transaction tracking built with modern web technologies.",
     image: "/media/icons/paytm.svg",
-    techStack: [
-      { name: "Next.js", iconType: "RiNextjsFill", color: "#FFFFFF" },
-      { name: "TypeScript", iconType: "BiLogoTypescript", color: "#3178C6" },
-      { name: "PostgreSQL", iconType: "BiLogoPostgresql", color: "#38BDF8" },
-      { name: "Prisma", iconType: "SiPrisma", color: "#38BDF8" }
-    ],
+    techStack: digitalWalletTechStack,
     features: [
       {
         title: "Secure Authentication",
@@ -217,12 +204,7 @@ export const projects = [
     title: "Brainly - Personal Knowledge Hub",
     description: "A knowledge management platform that organizes learning content from various sources into personalized knowledge bases with sharing capabilities.",
     image: "/media/icons/brainly.svg",
-    techStack: [
-      { name: "React", iconType: "FaReact", color: "#38BDF8" },
-      { name: "TypeScript", iconType: "BiLogoTypescript", color: "#3178C6" },
-      { name: "MongoDB", iconType: "SiMongodb", color: "#00684A" },
-      { name: "Express", iconType: "SiExpress", color: "#38BDF8" }
-    ],
+    techStack: brainlyTechStack,
     features: [
       {
         title: "Content Organization",

@@ -7,7 +7,7 @@ const Experience = () => {
         <span className="text-white">My </span>
         <span className="text-[#CBACF9]"> work experience </span>
       </div>
-      <div className="grid lg:grid-cols-2 lg:gap-8 xl:gap-10 gap-6 pt-12 ">
+      <div className="grid lg:grid-cols-2 lg:gap-8 xl:gap-12 gap-6 pt-12 ">
         <ExperienceCard
           img="/src/assets/group1.svg"
           heading="Frontend Developer Intern"

@@ -1,5 +1,6 @@
 import { Copy } from "lucide-react";
 import { useState } from "react";
+import TechBanner from "../ui/TechBanner";
 
 function CopyInput({ email }) {
   const [copied, setCopied] = useState(false);
@@ -35,7 +36,7 @@ const About = () => {
         <div className="flex flex-col sm:flex-col lg:flex-row justify-center items-center lg:gap-8 gap-4 lg:pt-16 pt-24 lg:">
           <div className="border-[#363749] border relative bg-[url('/media/icons/image.svg')] bg-cover bg-center bg-no-repeat xl:w-[689px] lg:w-[512px] w-[90vw] h-[312px] md:h-[412px] lg:max-h-[540px] lg:min-h-[510px] rounded-3xl text-white text-[20px] md:text-[36px] lg:text-[32px] font-bold flex justify-start items-end pl-4 pr-16 xl:pl-10 lg:pl-8 lg:pr-56 leading-tight pb-6 lg:pb-12 ">
             <span>
-              I prioritize client collaboration, fostering open communication
+            Full-stack developer passionate about building efficient web solutions with modern DevOps workflows
             </span>
             {/* Gradient overlay at the bottom */}
             <div className="absolute left-0 bottom-0 w-full h-36 rounded-b-3xl pointer-events-none bg-gradient-to-t from-[#000319] to-transparent" />
@@ -74,17 +75,22 @@ const About = () => {
                   <span className="absolute left-9 top-1/2 -translate-y-3/3 pointer-events-none">
                     <Copy className="w-4 h-4 text-[#C1C2D3]" />
                   </span>
-                  <CopyInput email="chouhanrahul1999@email.com" />
+                  <CopyInput email="chouhanrahul1999@gmail.com" />
                 </div>
               </div>
             </div>
           </div>
           <div className=" border-[#363749] border relative bg-[url('/media/icons/box6.svg')] bg-cover bg-center bg-no-repeat xl:w-[835px] lg:w-[600px] w-[90vw] lg:h-[390px] h-[180px] md:h-[200px] rounded-3xl text-white  flex justify-center flex-col xl:pl-12 lg:pl-8 pl-4  ">
-            <span className="pb-2 font-normal lg:text-[14px] md:text-[14px] text-[10px} lg:tracking-widest text-[#E4ECFF]">THE INSIDE SCOOP</span>
-            <span className="lg:text-[32px] md:text-[26px] text-[20px] font-bold leading-tight">Currently building a <br />job‑search platform <br /> for freshers</span>
-            
+            <span className="pb-2 font-normal lg:text-[14px] md:text-[14px] text-[10px} lg:tracking-widest text-[#E4ECFF]">
+              THE INSIDE SCOOP
+            </span>
+            <span className="lg:text-[32px] md:text-[26px] text-[20px] font-bold leading-tight">
+              Currently building a <br />
+              job‑search platform <br /> for freshers
+            </span>
           </div>
         </div>
+        <TechBanner />
       </div>
     </div>
   );

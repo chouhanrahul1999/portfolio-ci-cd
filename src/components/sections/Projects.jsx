@@ -16,7 +16,7 @@ const Projects = () => {
             <span className="lg:text-[48px] md:text-[44px] text-[30px] font-bold  text-white">A small selection of </span>
             <span className="text-[30px] md:text-[44px] lg:text-[48px] font-bold text-[#CBACF9] pl-3">recent projects</span>
             </div>
-            <div className="grid lg:grid-cols-2 gap-10 lg:gap-8 pt-16">
+            <div className="grid lg:grid-cols-2 gap-10 lg:gap-10 pt-16">
 
             <JobCard img="/media/icons/crtd.svg" 
              h1={"CRTD Technology Web Application"}

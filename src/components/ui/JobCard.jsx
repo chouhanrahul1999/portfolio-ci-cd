@@ -25,11 +25,11 @@ const JobCard = ({img, h1, p, icon1, icon2, icon3, icon4, projectId}) => {
                  <div alt="Job" className="md:h-12 md:p-0 p-2 h-9 -ml-1 md:w-12 w-9 bg-linear-to-bl from-[#04071D] to-[#0C0E23] stroke-2 border border-[#363749] rounded-4xl flex justify-center items-center" >{icon4}</div>
                 </div>
                 <div 
-                    className="flex flex-row text-white gap-2 cursor-pointer hover:text-[#CBACF9] transition-colors duration-200"
+                    className="flex flex-row text-white gap-2 cursor-pointer hover:text-[#CBACF9] transition-all duration-300 hover:scale-105 hover:gap-3"
                     onClick={handleViewProject}
                 >
                  View Details
-                 <span><ArrowUpRight /></span>
+                 <span className="transition-transform duration-300 hover:rotate-45"><ArrowUpRight /></span>
                 </div>
             </div>
         </div>

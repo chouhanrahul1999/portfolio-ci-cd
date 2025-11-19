@@ -1,27 +1,35 @@
-import { FaNodeJs, FaReact } from "react-icons/fa";
-import { SiMongodb, SiPrisma, SiTurborepo, SiTypescript, SiExpress } from "react-icons/si";
-import { BiLogoPostgresql, BiLogoTypescript } from "react-icons/bi";
+import { FaNodeJs, FaReact, FaPython, FaDocker, FaAws } from "react-icons/fa";
+import { SiMongodb, SiPrisma, SiTurborepo, SiTypescript, SiExpress, SiPostgresql, SiJavascript, SiTailwindcss, SiRedux } from "react-icons/si";
 import { RiNextjsFill } from "react-icons/ri";
 
 const iconMap = {
   FaReact,
   FaNodeJs,
+  FaPython,
+  FaDocker,
+  FaAws,
   SiMongodb,
   SiExpress,
+  SiPostgresql,
+  SiJavascript,
+  SiTailwindcss,
+  SiRedux,
   RiNextjsFill,
-  BiLogoTypescript,
-  BiLogoPostgresql,
   SiTurborepo,
   SiPrisma,
   SiTypescript
 };
 
 const TechStack = ({ techStack }) => {
+  if (!techStack || techStack.length === 0) {
+    return null;
+  }
+
   return (
     <div className="mb-20">
       <div className="text-center mb-12">
-        <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Technology Stack</h2>
-        <p className="text-[#C1C2D3] text-lg">Powered by modern technologies</p>
+        <h2 className="text-3xl md:text-4xl -tracking-tight font-bold text-white mb-4">Technology Stack</h2>
+        <p className="text-[#C1C2D3] tracking-wider text-lg">Powered by modern technologies</p>
       </div>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
         {techStack.map((tech, index) => {

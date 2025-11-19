@@ -1,1 +1,40 @@
 @import "tailwindcss";
+
+@keyframes scroll-right {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.animate-scroll-right {
+  animation: scroll-right 30s linear infinite;
+}
+
+.gradient-fade-left {
+  background: linear-gradient(to right, 
+    #000319 0%, 
+    #000319f2 15%, 
+    #000319d9 30%, 
+    #000319b3 45%, 
+    #00031980 60%, 
+    #0003194d 75%, 
+    #00031926 85%, 
+    transparent 100%
+  );
+}
+
+.gradient-fade-right {
+  background: linear-gradient(to left, 
+    #000319 0%, 
+    #000319f2 15%, 
+    #000319d9 30%, 
+    #000319b3 45%, 
+    #00031980 60%, 
+    #0003194d 75%, 
+    #00031926 85%, 
+    transparent 100%
+  );
+}
