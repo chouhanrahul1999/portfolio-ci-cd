@@ -329,10 +329,10 @@ export const projects = [
       {
         title: "Real-time Dashboard",
         userAction: "User views monitoring dashboard",
-        description: "Live dashboard displaying uptime statistics, response times, and historical data with interactive charts and real-time updates.",
+        description: "Live dashboard displaying uptime statistics, response times, and historical data with interactive charts and real-time updates: • View the last 5 monitored links with real-time status updates • Beautiful interactive graphs showing website response times • Comprehensive statistics table displaying uptime percentages and total incidents • Multi-region monitoring data with regional performance breakdowns",
         outcome: "Users can monitor all websites at a glance with instant status updates and performance metrics.",
         url: "betteruptime.com/dashboard",
-        technologies: ["Next.js", "Chart.js", "WebSocket"],
+        technologies: ["Next.js", "Node.js", "PostgreSQL"],
         features: ["Real-time charts", "Status indicators", "Historical data", "Performance metrics"],
         highlight: "WebSocket connections provide instant dashboard updates when monitoring events occur",
         dashboardImages: [
@@ -342,24 +342,35 @@ export const projects = [
         ]
       },
       {
-        title: "Multi-Channel Notifications",
-        userAction: "System detects website downtime",
-        description: "Automated notification system triggers alerts across multiple channels when website downtime is detected by monitoring workers.",
-        outcome: "Instant alerts delivered via Email, Slack, Discord, Webhook, and Telegram within seconds of detection.",
-        url: "betteruptime.com/alerts",
-        technologies: ["Kafka", "Gmail SMTP", "Webhook APIs"],
-        features: ["Multi-channel delivery", "Instant notifications", "Delivery confirmation", "Retry mechanisms"],
-        highlight: "Kafka ensures reliable message delivery with automatic retries and dead letter queues for failed notifications"
-      },
-      {
         title: "Distributed Monitoring",
-        userAction: "Worker processes check websites",
-        description: "Distributed worker architecture processes monitoring tasks from Redis Streams, checking websites across multiple regions simultaneously.",
-        outcome: "Scalable monitoring system handles hundreds of websites with 3-minute detection intervals across regions.",
+        userAction: "Add website URL for monitoring",
+        description: "Complete CRUD monitoring workflow with Redis Streams: • User adds website URL through dashboard interface • PostgreSQL database stores monitoring configuration • Redis Streams tracks and queues new monitoring tasks from database • Distributed workers consume tasks from Redis Streams to check website uptime • Response times and status calculated and saved to database • Backend API provides real-time status updates to frontend • Dashboard displays live monitoring results with response metrics",
+        outcome: "Full-stack monitoring system with Redis Streams tracking, real-time CRUD operations, and live status updates.",
         url: "betteruptime.com/monitoring",
         technologies: ["Redis Streams", "Docker", "PostgreSQL"],
-        features: ["Consumer groups", "Regional distribution", "Task queuing", "Result persistence"],
-        highlight: "Redis Streams consumer groups enable horizontal scaling with automatic load balancing across worker instances"
+        features: ["CRUD Operations", "Redis Streams Tracking", "Real-time Updates", "Response Tracking"],
+        highlight: "Redis Streams efficiently tracks and distributes monitoring tasks across worker nodes with consumer group coordination",
+        monitoringImages: [
+          '/media/screenshots/m1.png',
+          '/media/screenshots/m2.png',
+          '/media/screenshots/m3.png',
+          '/media/screenshots/m4.png'
+        ]
+      },
+      {
+        title: "Multi-Channel Notifications",
+        userAction: "Kafka detects website downtime event",
+        description: "Event-driven notification system with Kafka streaming: • Kafka process continuously monitors website status changes in real-time • When website goes down, downtime event triggers notification pipeline • Kafka streams process downtime events and route to notification services • System checks user subscription preferences for notification channels • Automated alerts sent via Email, Slack, Discord, Webhook, and Telegram • Users receive instant notifications on their subscribed channels within seconds • Delivery confirmation and retry mechanisms ensure reliable notification delivery",
+        outcome: "Real-time event-driven notifications delivered instantly across multiple channels based on user subscriptions.",
+        url: "betteruptime.com/alerts",
+        technologies: ["Kafka", "Gmail SMTP", "Webhook APIs"],
+        features: ["Event Streaming", "Subscription Management", "Multi-channel Delivery", "Retry Mechanisms"],
+        highlight: "Kafka streams enable real-time event processing with automatic notification routing based on user preferences",
+        notificationImages: [
+          '/media/screenshots/n1.png',
+          '/media/screenshots/n2.png',
+          '/media/screenshots/n3.png'
+        ]
       }
     ],
     impact: {
@@ -376,7 +387,7 @@ export const projects = [
         "Achieved sub-5-second notification delivery with automatic retry mechanisms"
       ]
     },
-    githubUrl: "https://github.com/chouhanrahul1999/betteruptime",
+    githubUrl: "https://github.com/chouhanrahul1999/betteruptime-app",
     liveUrl: null
   }
 ];
