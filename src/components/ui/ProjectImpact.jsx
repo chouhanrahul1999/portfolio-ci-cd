@@ -1,44 +1,79 @@
+import { TrendingUp, Trophy } from "lucide-react";
+
 const ProjectImpact = ({ impact }) => {
   return (
     <div className="mb-20">
       <div className="text-center mb-12">
-        <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Project Impact & Results</h2>
-        <p className="text-[#C1C2D3] text-lg">Real-world outcomes and measurable success</p>
+        <div className="inline-flex items-center gap-2 bg-gradient-to-r from-[#CBACF9]/10 to-[#38BDF8]/10 border border-[#CBACF9]/20 rounded-full px-4 py-2 mb-6">
+          <TrendingUp size={16} className="text-[#CBACF9]" />
+          <span className="text-[#CBACF9] text-sm font-medium">Impact Analysis</span>
+        </div>
+        <h2 className="text-3xl md:text-4xl tracking-wide font-bold bg-gradient-to-r from-white to-[#CBACF9] bg-clip-text text-transparent mb-4">
+          Project Impact & Results
+        </h2>
+        <p className="text-[#C1C2D3] tracking-wide text-lg">
+          Real-world outcomes and measurable success
+        </p>
       </div>
+      
       <div className="grid lg:grid-cols-2 gap-8">
         {/* Metrics */}
-        <div className="bg-gradient-to-br from-[#0C0E23] to-[#161A31] border border-[#363749] rounded-2xl p-8">
-          <div className="flex items-center gap-3 mb-6">
-            <div className="w-8 h-8 bg-gradient-to-br from-[#CBACF9] to-[#38BDF8] rounded-lg flex items-center justify-center">
-              <div className="w-4 h-4 bg-white rounded-full"></div>
-            </div>
-            <h3 className="text-2xl font-bold text-white">Key Metrics</h3>
-          </div>
-          <div className="space-y-4">
-            {impact?.metrics.map((metric, index) => (
-              <div key={index} className="flex justify-between items-center p-4 bg-[#161A31] border border-[#363749] rounded-lg">
-                <span className="text-[#C1C2D3] text-sm">{metric.label}</span>
-                <span className="text-[#CBACF9] font-bold">{metric.value}</span>
+        <div className="group relative">
+          <div className="absolute -inset-0.5 bg-gradient-to-r from-[#CBACF9]/15 to-[#38BDF8]/15 rounded-2xl blur opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+          <div className="relative bg-gradient-to-br from-[#0C0E23] to-[#161A31] border border-[#363749] rounded-2xl p-8 h-full hover:border-[#CBACF9]/30 transition-all duration-500 group-hover:shadow-lg group-hover:shadow-[#CBACF9]/10">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-10 h-10 bg-gradient-to-br from-[#CBACF9]/60 to-[#38BDF8]/60 rounded-lg flex items-center justify-center shadow-sm shadow-[#CBACF9]/10">
+                <TrendingUp size={18} className="text-white" />
               </div>
-            ))}
+              <h3 className="text-xl font-bold text-white">
+                Key Metrics
+              </h3>
+            </div>
+            
+            <div className="space-y-4">
+              {impact?.metrics.map((metric, index) => (
+                <div key={index} className="group/item relative">
+                  <div className="absolute -inset-0.5 bg-gradient-to-r from-[#CBACF9]/10 to-[#38BDF8]/10 rounded-lg blur opacity-30"></div>
+                  <div className="relative bg-gradient-to-r from-[#0F1419] to-[#1A1B3A] border border-[#CBACF9]/15 rounded-lg p-4 hover:border-[#CBACF9]/25 transition-all duration-300">
+                    <div className="flex justify-between items-center">
+                      <div className="flex items-center gap-2">
+                        <div className="w-1.5 h-1.5 bg-[#CBACF9]/70 rounded-full animate-pulse"></div>
+                        <span className="text-[#C1C2D3] text-sm font-medium">{metric.label}</span>
+                      </div>
+                      <span className="text-[#CBACF9] font-bold text-lg group-hover/item:text-white transition-colors duration-300">{metric.value}</span>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
         
         {/* Outcomes */}
-        <div className="bg-gradient-to-br from-[#0C0E23] to-[#161A31] border border-[#363749] rounded-2xl p-8">
-          <div className="flex items-center gap-3 mb-6">
-            <div className="w-8 h-8 bg-gradient-to-br from-green-500 to-emerald-500 rounded-lg flex items-center justify-center">
-              <div className="w-4 h-4 bg-white rounded-full"></div>
-            </div>
-            <h3 className="text-2xl font-bold text-white">Achievements</h3>
-          </div>
-          <div className="space-y-4">
-            {impact?.outcomes.map((outcome, index) => (
-              <div key={index} className="flex items-start gap-3">
-                <div className="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
-                <p className="text-[#C1C2D3] text-sm leading-relaxed">{outcome}</p>
+        <div className="group relative">
+          <div className="absolute -inset-0.5 bg-gradient-to-r from-green-500/15 to-emerald-500/15 rounded-2xl blur opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+          <div className="relative bg-gradient-to-br from-[#0C0E23] to-[#161A31] border border-[#363749] rounded-2xl p-8 h-full hover:border-green-500/30 transition-all duration-500 group-hover:shadow-lg group-hover:shadow-green-500/10">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-10 h-10 bg-gradient-to-br from-green-500/60 to-emerald-500/60 rounded-lg flex items-center justify-center shadow-sm shadow-green-500/10">
+                <Trophy size={18} className="text-white" />
               </div>
-            ))}
+              <h3 className="text-xl font-bold text-white">
+                Achievements
+              </h3>
+            </div>
+            
+            <div className="space-y-4">
+              {impact?.outcomes.map((outcome, index) => (
+                <div key={index} className="group/item">
+                  <div className="flex items-start gap-3 p-3 rounded-lg bg-gradient-to-r from-white/5 to-white/8 border border-white/8 hover:border-green-500/15 transition-all duration-300">
+                    <div className="flex-shrink-0 w-5 h-5 bg-gradient-to-br from-green-500/70 to-emerald-500/70 rounded-full flex items-center justify-center mt-1">
+                      <span className="text-white text-xs font-semibold">{index + 1}</span>
+                    </div>
+                    <p className="text-[#C1C2D3] text-sm leading-relaxed group-hover/item:text-white transition-colors duration-300">{outcome}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>

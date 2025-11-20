@@ -1,5 +1,5 @@
 import { FaNodeJs, FaReact, FaPython, FaDocker, FaAws } from "react-icons/fa";
-import { SiMongodb, SiPrisma, SiTurborepo, SiTypescript, SiExpress, SiPostgresql, SiJavascript, SiTailwindcss, SiRedux } from "react-icons/si";
+import { SiMongodb, SiPrisma, SiTurborepo, SiTypescript, SiExpress, SiPostgresql, SiJavascript, SiTailwindcss, SiRedux, SiRedis, SiDocker, SiApachekafka, SiShadcnui } from "react-icons/si";
 import { RiNextjsFill } from "react-icons/ri";
 
 const iconMap = {
@@ -17,7 +17,11 @@ const iconMap = {
   RiNextjsFill,
   SiTurborepo,
   SiPrisma,
-  SiTypescript
+  SiTypescript,
+  SiRedis,
+  SiDocker,
+  SiApachekafka,
+  SiShadcnui
 };
 
 const TechStack = ({ techStack }) => {

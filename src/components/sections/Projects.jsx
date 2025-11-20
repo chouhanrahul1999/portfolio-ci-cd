@@ -18,6 +18,15 @@ const Projects = () => {
             </div>
             <div className="grid lg:grid-cols-2 gap-10 lg:gap-10 pt-16">
 
+            <JobCard img="/media/screenshots/betteruptime.svg" 
+             h1={"BetterUptime - Web Monitoring App"}
+             p={"Event-driven microservices with Redis Streams and Kafka for multi-region website monitoring. Features 3-minute detection, real-time notifications, and scalable worker architecture with PostgreSQL and Docker deployment."}
+             icon1={<RiNextjsFill size={24} color="FFFFFF" />}
+             icon2={<BiLogoTypescript size={24} color="3178C6" />}
+             icon3={<BiLogoPostgresql size={24} color="38BDF8" />}
+             icon4={<FaNodeJs size={24} color="ffffff" />}
+             projectId="betteruptime"
+             />
             <JobCard img="/media/icons/crtd.svg" 
              h1={"CRTD Technology Web Application"}
              p={"Developed and deployed a Web for CRTD Technology in MERN. Implemented backend in node-js, frontend using React, and database features using mongodb. Automated deployment on a VM using a CI/CD pipeline."}

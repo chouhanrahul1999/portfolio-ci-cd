@@ -1,4 +1,4 @@
-import { crtdTechStack, zapierTechStack, excelidrawTechStack, digitalWalletTechStack, brainlyTechStack } from './techStacks.js';
+import { crtdTechStack, zapierTechStack, excelidrawTechStack, digitalWalletTechStack, brainlyTechStack, betterUptimeTechStack } from './techStacks.js';
 
 export const projects = [
   {
@@ -95,7 +95,7 @@ export const projects = [
       architecture: "Monorepo with WebSocket Real-time Communication",
       highlights: [
         "WebSocket server with Socket.io for real-time collaboration",
-        "Canvas optimization with requestAnimationFrame",
+        "Canvas optimization with request Animation Frame",
         "Operational transformation for conflict resolution",
         "Turborepo for efficient monorepo management"
       ],
@@ -263,6 +263,120 @@ export const projects = [
       ]
     },
     githubUrl: "https://github.com/chouhanrahul1999/brainly",
+    liveUrl: null
+  },
+  {
+    id: "betteruptime",
+    title: "BetterUptime - Web Monitoring App",
+    description: "Full-stack microservices architecture with dual event streaming using Redis Streams and Kafka for multi-region website monitoring with real-time notifications.",
+    image: "/media/screenshots/betteruptime.svg",
+    carouselImages: [
+      '/media/screenshots/h1.png',
+      '/media/screenshots/h2.png', 
+      '/media/screenshots/h3.png',
+      '/media/screenshots/h4.png',
+      '/media/screenshots/h5.png'
+    ],
+    techStack: betterUptimeTechStack,
+    features: [
+      {
+        title: "Multi-Region Monitoring",
+        description: "Distributed website monitoring across India and USA with 3-minute detection intervals"
+      },
+      {
+        title: "Dual Event Streaming",
+        description: "Redis Streams for work distribution and Kafka for real-time notification delivery"
+      },
+      {
+        title: "Multi-Channel Alerts",
+        description: "Instant notifications via Email, Slack, Discord, Webhook, and Telegram on downtime"
+      },
+      {
+        title: "Scalable Architecture",
+        description: "Containerized microservices with horizontal scaling and consumer group coordination"
+      }
+    ],
+    implementation: {
+      architecture: "Event-Driven Microservices with Dual Streaming",
+      highlights: [
+        "Redis Streams consumer groups for distributed task processing",
+        "Apache Kafka for fault-tolerant real-time notifications",
+        "Docker Compose orchestration with multi-container deployment",
+        "PostgreSQL with Prisma ORM for monitoring data persistence",
+        "JWT-based authentication with role-based access control",
+        "Gmail SMTP integration with retry mechanisms for email delivery",
+        "Webhook API endpoints for third-party integrations",
+        "Cron-based scheduling system for automated monitoring tasks"
+      ],
+      codeSnippet: "// Redis Streams consumer for distributed monitoring\nconst consumer = redis.xreadgroup(\n  'GROUP', 'monitor-workers', 'worker-1',\n  'COUNT', 10, 'BLOCK', 1000,\n  'STREAMS', 'monitoring-tasks', '>'\n);\n\n// Process monitoring tasks\nconsumer.forEach(async ([stream, messages]) => {\n  for (const [id, fields] of messages) {\n    await processMonitoringTask(fields);\n    await redis.xack('monitoring-tasks', 'monitor-workers', id);\n  }\n});"
+    },
+    demonstrations: [
+      {
+        title: "Secure Authentication & Onboarding",
+        userAction: "Complete secure signup and authentication flow",
+        description: "Production-grade authentication system: • bcrypt password hashing with salt rounds • JWT token-based authentication with refresh mechanisms • Zod schema validation for input sanitization • Secure session handling • Comprehensive user onboarding flow",
+        outcome: "User account securely created with hashed passwords, JWT tokens issued, email verified, and fully configured for website monitoring with tested notification channels.",
+        url: "betteruptime.com/auth",
+        technologies: ["JWT", "bcrypt", "Zod", "Gmail SMTP"],
+        features: ["Password hashing", "JWT authentication", "Schema validation", "Email verification", "Secure sessions"],
+
+        signupImages: [
+          '/media/screenshots/sign1.png',
+          '/media/screenshots/sign2.png',
+          '/media/screenshots/sign3.png'
+        ]
+      },
+      {
+        title: "Real-time Dashboard",
+        userAction: "User views monitoring dashboard",
+        description: "Live dashboard displaying uptime statistics, response times, and historical data with interactive charts and real-time updates.",
+        outcome: "Users can monitor all websites at a glance with instant status updates and performance metrics.",
+        url: "betteruptime.com/dashboard",
+        technologies: ["Next.js", "Chart.js", "WebSocket"],
+        features: ["Real-time charts", "Status indicators", "Historical data", "Performance metrics"],
+        highlight: "WebSocket connections provide instant dashboard updates when monitoring events occur",
+        dashboardImages: [
+          '/media/screenshots/d1.png',
+          '/media/screenshots/d2.png',
+          '/media/screenshots/d3.png'
+        ]
+      },
+      {
+        title: "Multi-Channel Notifications",
+        userAction: "System detects website downtime",
+        description: "Automated notification system triggers alerts across multiple channels when website downtime is detected by monitoring workers.",
+        outcome: "Instant alerts delivered via Email, Slack, Discord, Webhook, and Telegram within seconds of detection.",
+        url: "betteruptime.com/alerts",
+        technologies: ["Kafka", "Gmail SMTP", "Webhook APIs"],
+        features: ["Multi-channel delivery", "Instant notifications", "Delivery confirmation", "Retry mechanisms"],
+        highlight: "Kafka ensures reliable message delivery with automatic retries and dead letter queues for failed notifications"
+      },
+      {
+        title: "Distributed Monitoring",
+        userAction: "Worker processes check websites",
+        description: "Distributed worker architecture processes monitoring tasks from Redis Streams, checking websites across multiple regions simultaneously.",
+        outcome: "Scalable monitoring system handles hundreds of websites with 3-minute detection intervals across regions.",
+        url: "betteruptime.com/monitoring",
+        technologies: ["Redis Streams", "Docker", "PostgreSQL"],
+        features: ["Consumer groups", "Regional distribution", "Task queuing", "Result persistence"],
+        highlight: "Redis Streams consumer groups enable horizontal scaling with automatic load balancing across worker instances"
+      }
+    ],
+    impact: {
+      metrics: [
+        { label: "Detection Time", value: "3-minute intervals" },
+        { label: "Notification Speed", value: "<5 seconds delivery" },
+        { label: "System Uptime", value: "99.9% availability" },
+        { label: "Scalability", value: "500+ websites monitored" }
+      ],
+      outcomes: [
+        "Built fault-tolerant distributed system handling multi-region monitoring at scale",
+        "Implemented dual event streaming architecture ensuring reliable message processing",
+        "Created comprehensive notification system with 5 different delivery channels",
+        "Achieved sub-5-second notification delivery with automatic retry mechanisms"
+      ]
+    },
+    githubUrl: "https://github.com/chouhanrahul1999/betteruptime",
     liveUrl: null
   }
 ];

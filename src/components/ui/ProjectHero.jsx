@@ -1,8 +1,21 @@
 import { ArrowLeft, Code, Play, Zap, Shield, Sparkles } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 const ProjectHero = ({ project }) => {
   const navigate = useNavigate();
+  const [currentImage, setCurrentImage] = useState(0);
+  const images = project?.carouselImages || [project?.image];
+  const hasCarousel = project?.carouselImages && project.carouselImages.length > 1;
+
+  useEffect(() => {
+    if (hasCarousel) {
+      const interval = setInterval(() => {
+        setCurrentImage((prev) => (prev + 1) % images.length);
+      }, 3000);
+      return () => clearInterval(interval);
+    }
+  }, [hasCarousel, images.length]);
 
   return (
     <div className="relative bg-[#000319]">
@@ -43,9 +56,49 @@ const ProjectHero = ({ project }) => {
               <div className="relative bg-gradient-to-br from-[#0C0E23] via-[#0F1419] to-[#161A31] border border-[#363749] rounded-2xl p-8 md:p-12">
                 <div className="grid lg:grid-cols-2 gap-12 items-center">
                   <div>
-                    <div className="bg-gradient-to-br from-[#1a1a2e] to-[#16213e] rounded-xl p-8 border border-[#363749]">
-                      <div className="w-full h-64 bg-gradient-to-br from-[#CBACF9]/20 to-[#38BDF8]/20 rounded-lg flex items-center justify-center">
-                        <Play size={48} className="text-[#CBACF9]" />
+                    <div className="bg-gradient-to-br from-[#0F1419]/60 to-[#1A1B3A]/60 rounded-xl p-0. border border-[#363749]/50 relative overflow-hidden">
+                      <div className="relative w-full h-72 rounded-lg overflow-hidden">
+                        {images.map((image, index) => (
+                          <div
+                            key={index}
+                            className={`absolute inset-0 transition-all duration-1000 ease-in-out ${
+                              index === currentImage 
+                                ? 'opacity-100 scale-100' 
+                                : 'opacity-0 scale-105'
+                            }`}
+                          >
+                            <img
+                              src={image}
+                              alt={`Project screenshot ${index + 1}`}
+                              className="w-full h-full object-cover rounded-lg"
+                              onError={(e) => {
+                                e.target.style.display = 'none';
+                              }}
+                            />
+                          </div>
+                        ))}
+                        
+                        {/* Fallback if images don't load */}
+                        <div className="absolute inset-0 bg-gradient-to-br from-[#CBACF9]/10 to-[#38BDF8]/10 rounded-lg flex items-center justify-center">
+                          <Play size={48} className="text-[#CBACF9]/40" />
+                        </div>
+                        
+                        {/* Image indicators - only show for carousel */}
+                        {hasCarousel && (
+                          <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2">
+                            {images.map((_, index) => (
+                              <button
+                                key={index}
+                                onClick={() => setCurrentImage(index)}
+                                className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                                  index === currentImage 
+                                    ? 'bg-[#CBACF9] scale-125' 
+                                    : 'bg-white/30 hover:bg-white/50'
+                                }`}
+                              />
+                            ))}
+                          </div>
+                        )}
                       </div>
                     </div>
                   </div>
