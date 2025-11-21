@@ -3,12 +3,12 @@ import { Play } from "lucide-react";
 import SectionHeader from "./SectionHeader";
 import DemoCard from "./DemoCard";
 
-const DemoSection = ({ 
-  badge, 
-  title, 
-  description, 
-  demonstrations, 
-  icon = Play 
+const DemoSection = ({
+  badge,
+  title,
+  description,
+  demonstrations,
+  icon = Play,
 }) => {
   const [currentSignupImage, setCurrentSignupImage] = useState(0);
   const [currentDashboardImage, setCurrentDashboardImage] = useState(0);
@@ -45,26 +45,29 @@ const DemoSection = ({
     }
   }, [demonstrations]);
 
-  // Auto-rotate monitoring images for any demo if available
+  // Auto-rotate monitoring images for third demo if available
   useEffect(() => {
-    const firstDemo = demonstrations[0];
-    if (firstDemo?.monitoringImages && firstDemo.monitoringImages.length > 1) {
+    const thirdDemo = demonstrations[2];
+    if (thirdDemo?.monitoringImages && thirdDemo.monitoringImages.length > 1) {
       const interval = setInterval(() => {
         setCurrentMonitoringImage(
-          (prev) => (prev + 1) % firstDemo.monitoringImages.length
+          (prev) => (prev + 1) % thirdDemo.monitoringImages.length
         );
       }, 2500);
       return () => clearInterval(interval);
     }
   }, [demonstrations]);
 
-  // Auto-rotate notification images for any demo if available
+  // Auto-rotate notification images for fourth demo if available
   useEffect(() => {
-    const firstDemo = demonstrations[0];
-    if (firstDemo?.notificationImages && firstDemo.notificationImages.length > 1) {
+    const fourthDemo = demonstrations[3];
+    if (
+      fourthDemo?.notificationImages &&
+      fourthDemo.notificationImages.length > 1
+    ) {
       const interval = setInterval(() => {
         setCurrentNotificationImage(
-          (prev) => (prev + 1) % firstDemo.notificationImages.length
+          (prev) => (prev + 1) % fourthDemo.notificationImages.length
         );
       }, 2500);
       return () => clearInterval(interval);
@@ -73,23 +76,20 @@ const DemoSection = ({
 
   return (
     <div className="mb-20">
-      <SectionHeader 
-        badge={badge}
-        title={title}
-        description={description}
-      />
+      <SectionHeader badge={badge} title={title} description={description} />
       <div className="space-y-16">
         {demonstrations.map((demo, index) => {
-          const imageType =
-            demo.signupImages
-              ? "signupImages"
-              : demo.dashboardImages
-              ? "dashboardImages"
-              : demo.monitoringImages
-              ? "monitoringImages"
-              : demo.notificationImages
-              ? "notificationImages"
-              : demo.images ? "images" : null;
+          const imageType = demo.signupImages
+            ? "signupImages"
+            : demo.dashboardImages
+            ? "dashboardImages"
+            : demo.monitoringImages
+            ? "monitoringImages"
+            : demo.notificationImages
+            ? "notificationImages"
+            : demo.images
+            ? "images"
+            : null;
           const currentImage =
             imageType === "signupImages"
               ? currentSignupImage

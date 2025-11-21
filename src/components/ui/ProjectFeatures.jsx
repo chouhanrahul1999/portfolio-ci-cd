@@ -1,4 +1,4 @@
-import { Zap, Shield, Database, Workflow, Search, Share, Users, Code2, Smartphone, Lock, BarChart3, Settings, Globe, Bell, Activity, Layers } from "lucide-react";
+import { Zap, Shield, Database, Workflow, Search, Share, Users, Code2, Smartphone, Lock, BarChart3, Settings, Globe, Bell, Activity, Layers, Palette, GitBranch, Webhook } from "lucide-react";
 
 const featureIcons = {
   "Responsive Design": { icon: Smartphone, color: "#06B6D4" },
@@ -22,7 +22,11 @@ const featureIcons = {
   "Multi-Region Monitoring": { icon: Globe, color: "#06B6D4" },
   "Dual Event Streaming": { icon: Activity, color: "#8B5CF6" },
   "Multi-Channel Alerts": { icon: Bell, color: "#EF4444" },
-  "Scalable Architecture": { icon: Layers, color: "#10B981" }
+  "Scalable Architecture": { icon: Layers, color: "#10B981" },
+  "Visual Workflow Builder": { icon: Palette, color: "#EC4899" },
+  "Event-Driven Architecture": { icon: Activity, color: "#8B5CF6" },
+  "Microservices Design": { icon: GitBranch, color: "#10B981" },
+  "Webhook Integration": { icon: Webhook, color: "#F59E0B" }
 };
 
 const ProjectFeatures = ({ features }) => {

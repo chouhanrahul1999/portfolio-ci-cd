@@ -27,6 +27,15 @@ const Projects = () => {
              icon4={<FaNodeJs size={24} color="ffffff" />}
              projectId="betteruptime"
              />
+            <JobCard img="/media/screenshots/zapier.svg" 
+             h1={"Zapier - Workflow Automation App"}
+             p={"Full-stack microservices platform with visual workflow builder, event-driven processing via Kafka, and distributed worker architecture. Features drag-and-drop UI, webhook triggers, and scalable action execution with PostgreSQL."}
+             icon1={<RiNextjsFill size={24} color="FFFFFF" />}
+             icon2={<BiLogoTypescript size={24} color="3178C6" />}
+             icon3={<BiLogoPostgresql size={24} color="38BDF8" />}
+             icon4={<FaNodeJs size={24} color="ffffff" />}
+             projectId="zapier-clone"
+             />
             <JobCard img="/media/icons/crtd.svg" 
              h1={"CRTD Technology Web Application"}
              p={"Developed and deployed a Web for CRTD Technology in MERN. Implemented backend in node-js, frontend using React, and database features using mongodb. Automated deployment on a VM using a CI/CD pipeline."}
