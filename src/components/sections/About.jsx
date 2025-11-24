@@ -1,5 +1,5 @@
 import { Copy } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import TechBanner from "../ui/TechBanner";
 import { getImagePath } from "../../utils/imagePath";
 
@@ -31,6 +31,8 @@ function CopyInput({ email }) {
 }
 
 const About = () => {
+  const [imagesLoaded, setImagesLoaded] = useState(false);
+  
   const gridPattern = getImagePath("/media/icons/grid-pattern.svg");
   const imageBg = getImagePath("/media/icons/image.svg");
   const paginationBg = getImagePath("/media/icons/Pagination.svg");
@@ -39,11 +41,50 @@ const About = () => {
   const box5Bg = getImagePath("/media/icons/box5.svg");
   const box6Bg = getImagePath("/media/icons/box6.svg");
 
+  // Preload critical background images
+  useEffect(() => {
+    const imagesToPreload = [imageBg, gridPattern, boxTypeBg];
+    let loadedCount = 0;
+    
+    const preloadImages = imagesToPreload.map((src) => {
+      return new Promise((resolve, reject) => {
+        const img = new Image();
+        img.onload = () => {
+          loadedCount++;
+          if (loadedCount === imagesToPreload.length) {
+            setImagesLoaded(true);
+          }
+          resolve();
+        };
+        img.onerror = reject;
+        img.src = src;
+      });
+    });
+
+    // Also preload other images in background
+    [paginationBg, box4Bg, box5Bg, box6Bg].forEach((src) => {
+      const img = new Image();
+      img.src = src;
+    });
+
+    Promise.all(preloadImages).catch(() => {
+      // If preload fails, still show content
+      setImagesLoaded(true);
+    });
+  }, [imageBg, gridPattern, boxTypeBg, paginationBg, box4Bg, box5Bg, box6Bg]);
+
   return (
     <div id="about" className="  w-full bg-[#000319]">
       <div className="bg-cover bg-center bg-no-repeat w-full h-full" style={{ backgroundImage: `url(${gridPattern})` }}>
         <div className="flex flex-col sm:flex-col lg:flex-row justify-center items-center lg:gap-8 gap-4 lg:pt-16 pt-24 lg:">
-          <div className="border-[#363749] border relative bg-cover bg-center bg-no-repeat xl:w-[689px] lg:w-[512px] w-[90vw] h-[312px] md:h-[412px] lg:max-h-[540px] lg:min-h-[510px] rounded-3xl text-white text-[20px] md:text-[36px] lg:text-[32px] font-bold flex justify-start items-end pl-4 pr-16 xl:pl-10 lg:pl-8 lg:pr-56 leading-tight pb-6 lg:pb-12 " style={{ backgroundImage: `url(${imageBg})` }}>
+          <div 
+            className="border-[#363749] border relative bg-cover bg-center bg-no-repeat xl:w-[689px] lg:w-[512px] w-[90vw] h-[312px] md:h-[412px] lg:max-h-[540px] lg:min-h-[510px] rounded-3xl text-white text-[20px] md:text-[36px] lg:text-[32px] font-bold flex justify-start items-end pl-4 pr-16 xl:pl-10 lg:pl-8 lg:pr-56 leading-tight pb-6 lg:pb-12 transition-opacity duration-300"
+            style={{ 
+              backgroundImage: imagesLoaded ? `url(${imageBg})` : 'none',
+              backgroundColor: imagesLoaded ? 'transparent' : '#0C0E23',
+              opacity: imagesLoaded ? 1 : 0.9
+            }}
+          >
             <span>
             Full-stack developer passionate about building efficient web solutions with modern DevOps workflows
             </span>
