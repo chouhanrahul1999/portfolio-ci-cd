@@ -75,11 +75,11 @@ const ProjectFeatures = ({ features }) => {
           What makes this project special
         </p>
       </div>
-      <div className="grid sm:grid-cols-2 gap-6 sm:gap-8">
+      <div className="grid sm:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 w-full">
         {features.map((feature, index) => (
           <div key={index} className="group relative">
             <div className="absolute -inset-0.5 bg-gradient-to-r from-[#CBACF9]/10 to-[#38BDF8]/10 rounded-xl blur opacity-0 group-hover:opacity-60 transition duration-300"></div>
-            <div className="relative bg-gradient-to-br from-[#0C0E23] to-[#161A31] border border-[#363749] rounded-lg sm:rounded-xl p-6 sm:p-8 h-full hover:border-[#CBACF9]/20 transition-all duration-300">
+            <div className="relative bg-gradient-to-br from-[#0C0E23] to-[#161A31] border border-[#363749] rounded-lg sm:rounded-xl p-4 sm:p-6 lg:p-8 h-full hover:border-[#CBACF9]/20 transition-all duration-300 w-full">
               <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-white/10 to-white/5 rounded-lg flex items-center justify-center mb-3 sm:mb-4 shadow-sm transition-all duration-300">
                 {(() => {
                   if (feature.icon && REACT_ICONS[feature.icon]) {

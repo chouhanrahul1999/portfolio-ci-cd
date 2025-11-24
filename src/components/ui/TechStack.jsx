@@ -36,7 +36,7 @@ const TechStack = ({ techStack }) => {
         <h2 className="text-2xl sm:text-3xl lg:text-4xl -tracking-tight font-bold text-white mb-3 sm:mb-4">Technology Stack</h2>
         <p className="text-[#C1C2D3] tracking-wider text-base sm:text-lg">Powered by modern technologies</p>
       </div>
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-6 w-full">
         {techStack.map((tech, index) => {
           const IconComponent = iconMap[tech.iconType];
           return (

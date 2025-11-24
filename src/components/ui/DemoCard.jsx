@@ -19,13 +19,13 @@ const DemoCard = ({
       )}
 
       <div className="absolute -inset-1 bg-gradient-to-r from-[#CBACF9]/15 to-[#38BDF8]/15 rounded-3xl blur-sm opacity-0 group-hover:opacity-100 transition-all duration-700"></div>
-      <div className="relative bg-gradient-to-br from-[#0C0E23] to-[#161A31] border border-[#363749] rounded-3xl overflow-hidden group-hover:border-[#CBACF9]/30 transition-all duration-500 group-hover:shadow-xl group-hover:shadow-[#CBACF9]/10">
+      <div className="relative bg-gradient-to-br from-[#0C0E23] to-[#161A31] border border-[#363749] rounded-3xl overflow-hidden group-hover:border-[#CBACF9]/30 transition-all duration-500 group-hover:shadow-xl group-hover:shadow-[#CBACF9]/10 w-full">
         <div
           className={`grid ${
             imageType 
               ? (index % 2 === 0 ? "lg:grid-cols-[1fr_1.3fr]" : "lg:grid-cols-[1.3fr_1fr]") 
               : "lg:grid-cols-2"
-          } gap-8 p-8`}
+          } gap-4 sm:gap-6 lg:gap-8 p-4 sm:p-6 lg:p-8`}
         >
           {/* Image Section */}
           <div
@@ -148,19 +148,19 @@ const DemoCard = ({
           <div
             className={`${
               index % 2 === 0 ? "lg:order-1" : "lg:order-2"
-            } flex flex-col justify-center space-y-6`}
+            } flex flex-col justify-center space-y-4 sm:space-y-6`}
           >
             {/* Step indicator */}
-            <div className="flex items-center gap-4 mb-6">
+            <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
               <div className="relative">
-                <div className="w-12 h-12 bg-gradient-to-br from-[#CBACF9]/40 to-[#38BDF8]/40 rounded-xl flex items-center justify-center shadow-sm group-hover:scale-102 transition-transform duration-300">
-                  <span className="text-white/90 font-bold text-lg">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-[#CBACF9]/40 to-[#38BDF8]/40 rounded-xl flex items-center justify-center shadow-sm group-hover:scale-102 transition-transform duration-300">
+                  <span className="text-white/90 font-bold text-base sm:text-lg">
                     {index + 1}
                   </span>
                 </div>
                 <div className="absolute -inset-1 bg-gradient-to-r from-[#CBACF9]/20 to-[#38BDF8]/20 rounded-xl blur opacity-30 group-hover:opacity-40 transition-opacity duration-300"></div>
               </div>
-              <div>
+              <div className="flex-1 min-w-0">
                 <div className="hidden sm:flex items-center gap-2 mb-1">
                   <span className="text-[#CBACF9]/80 text-xs font-medium uppercase tracking-wide">
                     Step {index + 1}
@@ -170,7 +170,7 @@ const DemoCard = ({
                     {demo.userAction || "User Action"}
                   </span>
                 </div>
-                <h3 className="text-xl font-bold text-white group-hover:text-[#CBACF9]/90 transition-colors duration-300">
+                <h3 className="text-lg sm:text-xl font-bold text-white group-hover:text-[#CBACF9]/90 transition-colors duration-300 break-words">
                   {demo.title}
                 </h3>
               </div>
@@ -196,16 +196,16 @@ const DemoCard = ({
             )}
 
             {/* User Journey */}
-            <div className="space-y-4">
+            <div className="space-y-3 sm:space-y-4">
               <div className="relative">
                 <div className="absolute -inset-0.5 bg-gradient-to-r from-[#CBACF9]/10 to-[#38BDF8]/10 rounded-lg blur opacity-40"></div>
-                <div className="relative bg-gradient-to-r from-[#0F1419] to-[#1A1B3A] border border-[#CBACF9]/20 rounded-lg p-4">
-                  <div className="flex items-start gap-3">
-                    <div className="w-8 h-8 bg-[#CBACF9]/15 rounded-lg flex items-center justify-center mt-0.5">
-                      <CustomIcon size={14} className="text-[#CBACF9]/70" />
+                <div className="relative bg-gradient-to-r from-[#0F1419] to-[#1A1B3A] border border-[#CBACF9]/20 rounded-lg p-3 sm:p-4">
+                  <div className="flex items-start gap-2 sm:gap-3">
+                    <div className="w-7 h-7 sm:w-8 sm:h-8 bg-[#CBACF9]/15 rounded-lg flex items-center justify-center mt-0.5 flex-shrink-0">
+                      <CustomIcon size={12} sm:size={14} className="text-[#CBACF9]/70" />
                     </div>
-                    <div>
-                      <h4 className="text-white font-medium mb-2">
+                    <div className="flex-1 min-w-0">
+                      <h4 className="text-white font-medium mb-2 text-sm sm:text-base">
                         What happens here?
                       </h4>
                       {demo.description.includes("•") ? (
@@ -221,10 +221,10 @@ const DemoCard = ({
                               return (
                                 <div
                                   key={idx}
-                                  className="flex items-start gap-2 text-sm"
+                                  className="flex items-start gap-2 text-xs sm:text-sm"
                                 >
                                   <div className="w-1 h-1 bg-[#CBACF9]/60 rounded-full mt-2 flex-shrink-0"></div>
-                                  <span className="text-[#C1C2D3] leading-relaxed">
+                                  <span className="text-[#C1C2D3] leading-relaxed break-words">
                                     {text}
                                   </span>
                                 </div>
@@ -232,7 +232,7 @@ const DemoCard = ({
                             })}
                         </div>
                       ) : (
-                        <p className="text-[#C1C2D3] text-sm leading-relaxed">
+                        <p className="text-[#C1C2D3] text-xs sm:text-sm leading-relaxed break-words">
                           {demo.description.replace(/:/g, '').replace('and real-time updates', '.')}
                         </p>
                       )}
@@ -243,16 +243,16 @@ const DemoCard = ({
             </div>
 
             {/* Demo Details */}
-            <div className="space-y-3">
+            <div className="space-y-2 sm:space-y-3">
               {demo.outcome && (
-                <div className="p-3 bg-gradient-to-r from-green-500/5 to-emerald-500/5 border border-green-500/20 rounded-lg">
+                <div className="p-2 sm:p-3 bg-gradient-to-r from-green-500/5 to-emerald-500/5 border border-green-500/20 rounded-lg">
                   <div className="flex items-center gap-2 mb-1">
-                    <div className="w-1.5 h-1.5 bg-green-400/70 rounded-full"></div>
+                    <div className="w-1.5 h-1.5 bg-green-400/70 rounded-full flex-shrink-0"></div>
                     <span className="text-green-400/80 text-xs font-medium uppercase tracking-wide">
                       Expected Result
                     </span>
                   </div>
-                  <p className="text-green-100/60 text-xs leading-relaxed">
+                  <p className="text-green-100/60 text-xs leading-relaxed break-words">
                     {demo.outcome}
                   </p>
                 </div>

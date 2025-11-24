@@ -75,9 +75,9 @@ const DemoSection = ({
   }, [demonstrations]);
 
   return (
-    <div className="mb-20">
+    <div className="mb-12 sm:mb-16 lg:mb-20 w-full">
       <SectionHeader badge={badge} title={title} description={description} />
-      <div className="space-y-16">
+      <div className="space-y-12 sm:space-y-16 w-full">
         {demonstrations.map((demo, index) => {
           const imageType = demo.signupImages
             ? "signupImages"
