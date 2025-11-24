@@ -1,5 +1,6 @@
 import { Play } from "lucide-react";
 import { useState, useEffect } from "react";
+import { getImagePath } from "../../utils/imagePath";
 
 const DemoCard = ({ 
   demo, 
@@ -67,7 +68,7 @@ const DemoCard = ({
                           }`}
                         >
                           <img
-                            src={image}
+                            src={getImagePath(image)}
                             alt={`${imageType} step ${imgIndex + 1}`}
                             className="w-full h-full object-contain object-top"
                             onError={(e) => {

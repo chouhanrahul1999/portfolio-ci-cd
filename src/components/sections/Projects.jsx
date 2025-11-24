@@ -10,6 +10,7 @@ import { SiWebstorm } from "react-icons/si";
 import { SiRedis } from "react-icons/si";
 import { SiApachekafka } from "react-icons/si";
 import { FaDocker } from "react-icons/fa";
+import { getImagePath } from "../../utils/imagePath";
 
 
 const Projects = () => {
@@ -26,7 +27,7 @@ const Projects = () => {
         </div>
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-10 pt-16">
           <JobCard
-            img="/media/screenshots/betteruptime.svg"
+            img={getImagePath("/media/screenshots/betteruptime.svg")}
             h1={"BetterUptime - Web Monitoring App"}
             p={
               "Event-driven microservices with Redis Streams and Kafka for multi-region website monitoring. Features 3-minute detection, real-time notifications, and scalable worker architecture with PostgreSQL and Docker deployment."
@@ -39,7 +40,7 @@ const Projects = () => {
           />
 
           <JobCard
-            img="/media/screenshots/excelidrawapp.svg"
+            img={getImagePath("/media/screenshots/excelidrawapp.svg")}
             h1={"Excelidraw- A Whiteboard App"}
             p={
               "Built Excelidraw, a real-time collaborative whiteboard app with HTTP and WebSocket backends, a Next.js frontend, and PostgreSQL using Prisma ORM. Managed the project in a Turborepo monorepo for efficient development."
@@ -52,7 +53,7 @@ const Projects = () => {
           />
 
           <JobCard
-            img="/media/screenshots/zapier.svg"
+            img={getImagePath("/media/screenshots/zapier.svg")}
             h1={"Zapier - Workflow Automation App"}
             p={
               "Full-stack microservices platform with visual workflow builder, event-driven processing via Kafka, and distributed worker architecture. Features drag-and-drop UI, webhook triggers, and scalable action execution with PostgreSQL."
@@ -64,7 +65,7 @@ const Projects = () => {
             projectId="zapier-clone"
           />
           <JobCard
-            img="/media/icons/crtd.svg"
+            img={getImagePath("/media/icons/crtd.svg")}
             h1={"CRTD Technology Web Application"}
             p={
               "Developed and deployed a Web for CRTD Technology in MERN. Implemented backend in node-js, frontend using React, and database features using mongodb. Automated deployment on a VM using a CI/CD pipeline."
@@ -77,7 +78,7 @@ const Projects = () => {
           />
 
           <JobCard
-            img="/media/icons/paytm.svg"
+            img={getImagePath("/media/icons/paytm.svg")}
             h1={"Digital payment application"}
             p={
               "A digital payment application built with Next.js, TypeScript, and PostgreSQL, featuring secure authentication, P2P transfers, and real-time transaction tracking and interaction with bank."
@@ -89,7 +90,7 @@ const Projects = () => {
             projectId="digital-payment"
           />
           <JobCard
-            img="/media/icons/brainly.svg"
+            img={getImagePath("/media/icons/brainly.svg")}
             h1={"Brainly - Knowledge Hub"}
             p={
               "Brainly organizes learning content (YouTube/Twitter) into personal knowledge bases. Features dashboard with stats, content management, and sharing. Built with React, TypeScript, Node.js. Shows full-stack skills."

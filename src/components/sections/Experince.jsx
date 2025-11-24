@@ -1,4 +1,5 @@
 import ExperienceCard from "../ui/ExperanceCard";
+import { getImagePath } from "../../utils/imagePath";
 
 const Experience = () => {
   return (
@@ -9,22 +10,22 @@ const Experience = () => {
       </div>
       <div className="grid lg:grid-cols-2 lg:gap-8 xl:gap-12 gap-6 pt-12 ">
         <ExperienceCard
-          img="/src/assets/group1.svg"
+          img={getImagePath("/media/icons/group1.svg")}
           heading="Frontend Developer Intern"
           para="Played a key role in building a web‑based platform at Wyreflow Technology using React, improving interactivity and UX."
         />
         <ExperienceCard
-          img="/src/assets/group2.svg"
+          img={getImagePath("/media/icons/group2.svg")}
           heading="Personal Projects"
           para="Built a real‑time whiteboard, a payments app, and a knowledge hub—end‑to‑end (React, Node, SQL/NoSQL) with auth and CI/CD."
         />
         <ExperienceCard
-          img="/src/assets/group3.svg"
+          img={getImagePath("/media/icons/group3.svg")}
           heading="Team Lead"
           para="Led the frontend team at Wyreflow Technology; established architecture and standards, mentored engineers, and delivered features on schedule."
         />
         <ExperienceCard
-          img="/src/assets/group4.svg"
+          img={getImagePath("/media/icons/group4.svg")}
           heading="Freelance Dev Project"
           para="I haven't taken on any freelance projects yet, but I'm genuinely excited and motivated to start contributing."
         />

@@ -1,11 +1,15 @@
 import { ArrowLeft, Code, Play, Zap, Shield, Sparkles } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
+import { getImagePath } from "../../utils/imagePath";
 
 const ProjectHero = ({ project }) => {
   const navigate = useNavigate();
   const [currentImage, setCurrentImage] = useState(0);
-  const images = project?.carouselImages || [project?.image];
+  const images = useMemo(() => {
+    const imageArray = project?.carouselImages || [project?.image];
+    return imageArray.map(img => img ? getImagePath(img) : img).filter(Boolean);
+  }, [project]);
   const hasCarousel = project?.carouselImages && project.carouselImages.length > 1;
 
   useEffect(() => {
@@ -17,12 +21,16 @@ const ProjectHero = ({ project }) => {
     }
   }, [hasCarousel, images.length]);
 
+  const gridPattern = getImagePath("/media/icons/grid-pattern.svg");
+  const spotlight = getImagePath("/media/icons/spotlight.svg");
+  const spotlightRight = getImagePath("/media/icons/spotlightright.svg");
+
   return (
     <div className="relative bg-[#000319]">
-      <div className="bg-[url('/media/icons/grid-pattern.svg')] bg-cover bg-center bg-no-repeat">
+      <div className="bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url(${gridPattern})` }}>
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#000319]/10 to-[#000319]"></div>
-        <div className="absolute top-0 left-0 bg-[url('/media/icons/spotlight.svg')] bg-cover bg-center bg-no-repeat h-0 w-0 md:h-60 md:w-120"></div>
-        <div className="absolute top-0 right-0 bg-[url('/media/icons/spotlightright.svg')] bg-cover bg-center bg-no-repeat h-0 w-0 md:h-60 md:w-120"></div>
+        <div className="absolute top-0 left-0 bg-cover bg-center bg-no-repeat h-0 w-0 md:h-60 md:w-120" style={{ backgroundImage: `url(${spotlight})` }}></div>
+        <div className="absolute top-0 right-0 bg-cover bg-center bg-no-repeat h-0 w-0 md:h-60 md:w-120" style={{ backgroundImage: `url(${spotlightRight})` }}></div>
         <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 pt-8 sm:pt-12 pb-6">
           <button
             onClick={() => navigate("/")}
