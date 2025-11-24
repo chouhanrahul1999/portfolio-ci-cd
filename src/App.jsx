@@ -1,5 +1,5 @@
 import './App.css'
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, HashRouter } from 'react-router-dom'
 import Hero from './components/sections/Hero'
 import Projects from './components/sections/Projects'
 import Experience from './components/sections/Experince'
@@ -20,10 +20,12 @@ function App() {
   )
 
   return (
-    <Routes>
-      <Route path="/" element={<Portfolio />} />
-      <Route path="/project/:projectId" element={<ProjectDetail projects={projects} />} />
-    </Routes>
+    <HashRouter>
+      <Routes>
+        <Route path="/" element={<Portfolio />} />
+        <Route path="/project/:projectId" element={<ProjectDetail projects={projects} />} />
+      </Routes>
+    </HashRouter>
   )
 }
 
