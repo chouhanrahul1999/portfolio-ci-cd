@@ -3,9 +3,9 @@ import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 
 // https://vite.dev/config/
-export default defineConfig({
+export default defineConfig(({ command }) => ({
   plugins: [tailwindcss(), react()],
-  base: '/portfolio-ci-cd/',
+  base: command === 'build' ? '/portfolio-ci-cd/' : '/',
   server: {
     host: '0.0.0.0',
     port: 5173,
@@ -20,4 +20,4 @@ export default defineConfig({
     port: 4173,
     host: '0.0.0.0'
   }
-})
+}))
