@@ -27,7 +27,8 @@ export const excelidrawTechStack = [
   { name: "Node.js", iconType: "FaNodeJs", color: "#339933" },
   { name: "Express.js", iconType: "SiExpress", color: "#FFFFFF" },
   { name: "Prisma ORM", iconType: "SiPrisma", color: "#5A67D8" },
-  { name: "PostgreSQL", iconType: "SiPostgresql", color: "#336791" }
+  { name: "PostgreSQL", iconType: "SiPostgresql", color: "#336791" },
+  { name: "WebSockets", iconType: "SiSocketdotio", color: "#010101" },
 ];
 
 export const digitalWalletTechStack = [

@@ -2,25 +2,25 @@ import { Code, Terminal, Layers } from "lucide-react";
 
 const TechnicalImplementation = ({ implementation }) => {
   return (
-    <div className="mb-20">
-      <div className="text-center mb-12">
-        <h2 className="text-3xl md:text-4xl tracking-wide font-bold text-white mb-4">
+    <div className="mb-12 sm:mb-16 lg:mb-20">
+      <div className="text-center mb-8 sm:mb-10 lg:mb-12">
+        <h2 className="text-2xl sm:text-3xl lg:text-4xl tracking-wide font-bold text-white mb-3 sm:mb-4">
           Technical Implementation
         </h2>
-        <p className="text-[#C1C2D3] tracking-wide text-lg">
+        <p className="text-[#C1C2D3] tracking-wide text-base sm:text-lg">
           Architecture decisions and code highlights
         </p>
       </div>
-      <div className="grid lg:grid-cols-2 gap-8">
+      <div className="grid lg:grid-cols-2 gap-6 sm:gap-8">
         {/* Architecture Section */}
         <div className="group relative">
           <div className="absolute -inset-0.5 bg-gradient-to-r from-[#CBACF9]/10 to-[#38BDF8]/10 rounded-xl blur opacity-0 group-hover:opacity-60 transition duration-300"></div>
-          <div className="relative bg-gradient-to-br from-[#0C0E23] to-[#161A31] border border-[#363749] rounded-xl p-8 h-full hover:border-[#CBACF9]/20 transition-all duration-300">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 bg-gradient-to-br from-[#CBACF9]/60 to-[#38BDF8]/60 rounded-lg flex items-center justify-center shadow-sm shadow-[#CBACF9]/10">
-                <Layers size={18} className="text-white" />
+          <div className="relative bg-gradient-to-br from-[#0C0E23] to-[#161A31] border border-[#363749] rounded-lg sm:rounded-xl p-6 sm:p-8 h-full hover:border-[#CBACF9]/20 transition-all duration-300">
+            <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
+              <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-[#CBACF9]/60 to-[#38BDF8]/60 rounded-lg flex items-center justify-center shadow-sm shadow-[#CBACF9]/10">
+                <Layers size={16} sm:size={18} className="text-white" />
               </div>
-              <h3 className="text-xl font-bold text-white">
+              <h3 className="text-lg sm:text-xl font-bold text-white">
                 Architecture
               </h3>
             </div>
@@ -33,7 +33,7 @@ const TechnicalImplementation = ({ implementation }) => {
                   <div className="w-1.5 h-1.5 bg-[#CBACF9]/70 rounded-full animate-pulse"></div>
                   <span className="text-[#CBACF9]/80 text-xs font-medium uppercase tracking-wide">System Design</span>
                 </div>
-                <p className="text-white font-semibold text-lg leading-relaxed">
+                <p className="text-white font-semibold text-base sm:text-lg leading-relaxed">
                   {implementation?.architecture}
                 </p>
               </div>
@@ -49,7 +49,7 @@ const TechnicalImplementation = ({ implementation }) => {
                       <div className="flex-shrink-0 w-5 h-5 bg-gradient-to-br from-[#CBACF9]/70 to-[#38BDF8]/70 rounded-full flex items-center justify-center mt-1">
                         <span className="text-white text-xs font-semibold">{index + 1}</span>
                       </div>
-                      <p className="text-[#C1C2D3] text-sm leading-relaxed group-hover/item:text-white transition-colors duration-300">{highlight}</p>
+                      <p className="text-[#C1C2D3] text-xs sm:text-sm leading-relaxed group-hover/item:text-white transition-colors duration-300">{highlight}</p>
                     </div>
                   </div>
                 ))}
@@ -61,12 +61,12 @@ const TechnicalImplementation = ({ implementation }) => {
         {/* Code Snippet Section */}
         <div className="group relative">
           <div className="absolute -inset-0.5 bg-gradient-to-r from-[#38BDF8]/10 to-[#CBACF9]/10 rounded-xl blur opacity-0 group-hover:opacity-60 transition duration-300"></div>
-          <div className="relative bg-gradient-to-br from-[#0C0E23] to-[#161A31] border border-[#363749] rounded-xl p-8 h-full hover:border-[#38BDF8]/20 transition-all duration-300">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 bg-gradient-to-br from-[#38BDF8]/60 to-[#CBACF9]/60 rounded-lg flex items-center justify-center shadow-sm shadow-[#38BDF8]/10">
-                <Terminal size={18} className="text-white" />
+          <div className="relative bg-gradient-to-br from-[#0C0E23] to-[#161A31] border border-[#363749] rounded-lg sm:rounded-xl p-6 sm:p-8 h-full hover:border-[#38BDF8]/20 transition-all duration-300">
+            <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
+              <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-[#38BDF8]/60 to-[#CBACF9]/60 rounded-lg flex items-center justify-center shadow-sm shadow-[#38BDF8]/10">
+                <Terminal size={16} sm:size={18} className="text-white" />
               </div>
-              <h3 className="text-xl font-bold text-white">
+              <h3 className="text-lg sm:text-xl font-bold text-white">
                 Code Snippet
               </h3>
             </div>
@@ -79,7 +79,7 @@ const TechnicalImplementation = ({ implementation }) => {
                   <div className="w-1.5 h-1.5 bg-[#38BDF8]/70 rounded-full animate-pulse"></div>
                   <span className="text-[#38BDF8]/80 text-xs font-medium uppercase tracking-wide">Implementation</span>
                 </div>
-                <p className="text-white font-semibold text-lg leading-relaxed">
+                <p className="text-white font-semibold text-base sm:text-lg leading-relaxed">
                   Live code example showcasing key functionality
                 </p>
               </div>
@@ -97,7 +97,7 @@ const TechnicalImplementation = ({ implementation }) => {
                   </div>
                 </div>
                 <div className="p-4 overflow-x-auto">
-                  <pre className="text-sm text-[#C1C2D3] whitespace-pre-wrap font-mono leading-relaxed">
+                  <pre className="text-xs sm:text-sm text-[#C1C2D3] whitespace-pre-wrap font-mono leading-relaxed">
                     <code>{implementation?.codeSnippet}</code>
                   </pre>
                 </div>

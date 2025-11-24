@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import ProjectHero from "../ui/ProjectHero";
 import TechStack from "../ui/TechStack";
@@ -11,6 +12,11 @@ import Contact from "../sections/Contact";
 const ProjectDetail = ({ projects }) => {
   const { projectId } = useParams();
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [projectId]);
+
+
   const project = projects.find((p) => p.id === projectId);
 
   if (!project) {
@@ -20,7 +26,7 @@ const ProjectDetail = ({ projects }) => {
   return (
     <div className="w-full bg-[#000319] min-h-screen">
       <ProjectHero project={project} />
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <TechStack techStack={project.techStack} />
         <ProjectFeatures features={project.features} />
         <TechnicalImplementation implementation={project.implementation} />

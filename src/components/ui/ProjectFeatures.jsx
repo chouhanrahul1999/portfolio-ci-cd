@@ -1,4 +1,39 @@
 import { Zap, Shield, Database, Workflow, Search, Share, Users, Code2, Smartphone, Lock, BarChart3, Settings, Globe, Bell, Activity, Layers, Palette, GitBranch, Webhook } from "lucide-react";
+import { 
+  FaPaintBrush, FaBolt, FaDatabase, FaShieldAlt, FaUndo,
+  FaMobile, FaServer, FaRocket, FaLock, FaExchangeAlt, 
+  FaUniversity, FaChartLine, FaBook, FaChartBar, FaEdit, 
+  FaShare, FaGlobe, FaStream, FaBell, FaLayerGroup,
+  FaSitemap, FaCogs, FaCubes, FaPlug
+} from "react-icons/fa";
+
+// Move React Icons mapping outside component to prevent recreation on every render
+const REACT_ICONS = {
+  "FaPaintBrush": FaPaintBrush,
+  "FaBolt": FaBolt,
+  "FaDatabase": FaDatabase,
+  "FaShieldAlt": FaShieldAlt,
+  "FaUndo": FaUndo,
+  "FaMobile": FaMobile,
+  "FaServer": FaServer,
+  "FaRocket": FaRocket,
+  "FaLock": FaLock,
+  "FaExchangeAlt": FaExchangeAlt,
+  "FaUniversity": FaUniversity,
+  "FaChartLine": FaChartLine,
+  "FaBook": FaBook,
+  "FaChartBar": FaChartBar,
+  "FaEdit": FaEdit,
+  "FaShare": FaShare,
+  "FaGlobe": FaGlobe,
+  "FaStream": FaStream,
+  "FaBell": FaBell,
+  "FaLayerGroup": FaLayerGroup,
+  "FaSitemap": FaSitemap,
+  "FaCogs": FaCogs,
+  "FaCubes": FaCubes,
+  "FaPlug": FaPlug
+};
 
 const featureIcons = {
   "Responsive Design": { icon: Smartphone, color: "#06B6D4" },
@@ -31,31 +66,37 @@ const featureIcons = {
 
 const ProjectFeatures = ({ features }) => {
   return (
-    <div className="mb-20">
-      <div className="text-center mb-12">
-        <h2 className="text-3xl tracking-wide md:text-4xl font-bold text-white mb-4">
+    <div className="mb-12 sm:mb-16 lg:mb-20">
+      <div className="text-center mb-8 sm:mb-10 lg:mb-12">
+        <h2 className="text-2xl sm:text-3xl lg:text-4xl tracking-wide font-bold text-white mb-3 sm:mb-4">
           Key Features
         </h2>
-        <p className="text-[#C1C2D3] tracking-wide text-lg">
+        <p className="text-[#C1C2D3] tracking-wide text-base sm:text-lg">
           What makes this project special
         </p>
       </div>
-      <div className="grid md:grid-cols-2 gap-8">
+      <div className="grid sm:grid-cols-2 gap-6 sm:gap-8">
         {features.map((feature, index) => (
           <div key={index} className="group relative">
             <div className="absolute -inset-0.5 bg-gradient-to-r from-[#CBACF9]/10 to-[#38BDF8]/10 rounded-xl blur opacity-0 group-hover:opacity-60 transition duration-300"></div>
-            <div className="relative bg-gradient-to-br from-[#0C0E23] to-[#161A31] border border-[#363749] rounded-xl p-8 h-full hover:border-[#CBACF9]/20 transition-all duration-300">
-              <div className="w-10 h-10 bg-gradient-to-br from-white/10 to-white/5 rounded-lg flex items-center justify-center mb-4 shadow-sm transition-all duration-300">
+            <div className="relative bg-gradient-to-br from-[#0C0E23] to-[#161A31] border border-[#363749] rounded-lg sm:rounded-xl p-6 sm:p-8 h-full hover:border-[#CBACF9]/20 transition-all duration-300">
+              <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-white/10 to-white/5 rounded-lg flex items-center justify-center mb-3 sm:mb-4 shadow-sm transition-all duration-300">
                 {(() => {
+                  if (feature.icon && REACT_ICONS[feature.icon]) {
+                    const ReactIcon = REACT_ICONS[feature.icon];
+                    return <ReactIcon size={16} sm:size={18} style={{ color: "#CBACF9" }} className="transition-all duration-300" />;
+                  }
+                  
+                  // Fallback to Lucide icons
                   const iconData = featureIcons[feature.title] || { icon: Settings, color: "#CBACF9" };
                   const IconComponent = iconData.icon;
-                  return <IconComponent size={18} style={{ color: iconData.color }} className="transition-all duration-300" />;
+                  return <IconComponent size={16} sm:size={18} style={{ color: iconData.color }} className="transition-all duration-300" />;
                 })()}
               </div>
-              <h3 className="text-xl font-bold text-white mb-3">
+              <h3 className="text-lg sm:text-xl font-bold text-white mb-2 sm:mb-3">
                 {feature.title}
               </h3>
-              <p className="text-[#C1C2D3] leading-relaxed">
+              <p className="text-[#C1C2D3] leading-relaxed text-sm sm:text-base">
                 {feature.description}
               </p>
             </div>

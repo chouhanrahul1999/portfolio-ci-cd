@@ -160,7 +160,7 @@ const DemoCard = ({
                 <div className="absolute -inset-1 bg-gradient-to-r from-[#CBACF9]/20 to-[#38BDF8]/20 rounded-xl blur opacity-30 group-hover:opacity-40 transition-opacity duration-300"></div>
               </div>
               <div>
-                <div className="flex items-center gap-2 mb-1">
+                <div className="hidden sm:flex items-center gap-2 mb-1">
                   <span className="text-[#CBACF9]/80 text-xs font-medium uppercase tracking-wide">
                     Step {index + 1}
                   </span>

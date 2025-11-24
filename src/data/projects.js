@@ -10,19 +10,23 @@ export const projects = [
     features: [
       {
         title: "Responsive Design",
-        description: "Mobile-first approach ensuring optimal user experience across all devices"
+        description: "Mobile-first approach ensuring optimal user experience across all devices",
+        icon: "FaMobile"
       },
       {
         title: "RESTful API",
-        description: "Well-structured backend API with proper error handling and validation"
+        description: "Well-structured backend API with proper error handling and validation",
+        icon: "FaServer"
       },
       {
         title: "Database Integration",
-        description: "MongoDB integration with optimized queries and data modeling"
+        description: "MongoDB integration with optimized queries and data modeling",
+        icon: "FaDatabase"
       },
       {
         title: "CI/CD Pipeline",
-        description: "Automated deployment process using modern DevOps practices"
+        description: "Automated deployment process using modern DevOps practices",
+        icon: "FaRocket"
       }
     ],
     implementation: {
@@ -69,65 +73,98 @@ export const projects = [
   },
   {
     id: "excelidraw",
-    title: "Excelidraw - Real-time Collaborative Whiteboard",
-    description: "A real-time collaborative whiteboard application with WebSocket support, built using modern full-stack technologies in a monorepo structure.",
+    title: "Excelidraw - Real-Time Collaborative Whiteboard",
+    description: "A real-time collaborative whiteboard application with dual-backend architecture, WebSocket synchronization, and comprehensive drawing tools built in a Turborepo monorepo.",
     image: "/media/icons/excelidraw.svg",
     techStack: excelidrawTechStack,
+    carouselImages: [
+      '/media/screenshots/ex1.png',
+      '/media/screenshots/ex2.png', 
+      '/media/screenshots/ex3.png',
+      '/media/screenshots/ex4.png',
+      '/media/screenshots/ex5.png'
+    ],
     features: [
       {
-        title: "Real-time Collaboration",
-        description: "Multiple users can draw and edit simultaneously with WebSocket connections"
+        title: "Multi-Tool Drawing Engine",
+        description: "Circles, rectangles, pencil, arrows, lines, text, eraser with collision detection and drag-and-drop support",
+        icon: "FaPaintBrush"
       },
       {
-        title: "Drawing Tools",
-        description: "Comprehensive set of drawing tools including shapes, text, and freehand drawing"
+        title: "Real-Time Collaboration",
+        description: "WebSocket broadcasting to all connected users with instant shape updates, deletions, and user presence tracking",
+        icon: "FaBolt"
       },
       {
-        title: "Room Management",
-        description: "Create and join collaborative rooms with unique identifiers"
+        title: "Persistent Shape Storage",
+        description: "PostgreSQL + Prisma ORM for room history retrieval and shape persistence on draw events",
+        icon: "FaDatabase"
       },
       {
-        title: "Data Persistence",
-        description: "Save and load drawings with PostgreSQL database integration"
+        title: "JWT Authentication",
+        description: "Secure signup/signin with token validation and bcrypt password hashing",
+        icon: "FaShieldAlt"
+      },
+      {
+        title: "Undo/Redo Functionality",
+        description: "Local history stack with shape selection and movement capabilities",
+        icon: "FaUndo"
       }
     ],
     implementation: {
-      architecture: "Monorepo with WebSocket Real-time Communication",
+      architecture: "Dual-Backend Microservices Architecture with Real-Time Synchronization",
       highlights: [
-        "WebSocket server with Socket.io for real-time collaboration",
-        "Canvas optimization with request Animation Frame",
-        "Operational transformation for conflict resolution",
-        "Turborepo for efficient monorepo management"
+        "Frontend: Next.js 14 + TypeScript with Canvas API for drawing operations and Tailwind CSS styling",
+        "Dual Backend System: Stateless HTTP REST API + Real-time WebSocket sync engine for collaborative features",
+        "Microservices Pattern: Authentication service, Room management service, Drawing synchronization service",
+        "Database Layer: PostgreSQL + Prisma ORM for shape persistence and room history with optimized queries",
+        "Real-Time Engine: In-memory WebSocket user registry tracking active connections per room for efficient broadcasting",
+        "Security: JWT authentication with bcrypt password hashing and token validation middleware",
+        "Monorepo Structure: Turborepo organization enabling shared packages and efficient build processes",
+        "Infrastructure: Containerized deployment with Docker for scalable multi-service architecture"
       ],
-      codeSnippet: "// Real-time drawing synchronization\nsocket.on('drawing-update', (drawData) => {\n  const canvas = canvasRef.current;\n  const ctx = canvas.getContext('2d');\n  \n  requestAnimationFrame(() => {\n    renderDrawing(ctx, drawData);\n  });\n});"
+      codeSnippet: "// In-memory user registry for room-based broadcasting\nconst roomUserRegistry = new Map();\n\n// WebSocket connection management\nio.on('connection', (socket) => {\n  socket.on('join-room', ({ roomId, userId }) => {\n    if (!roomUserRegistry.has(roomId)) {\n      roomUserRegistry.set(roomId, new Set());\n    }\n    roomUserRegistry.get(roomId).add(socket);\n    socket.join(roomId);\n  });\n\n  // Real-time shape broadcasting\n  socket.on('shape-update', async (data) => {\n    const { roomId, shape } = data;\n    \n    // Persist to PostgreSQL\n    await prisma.shape.create({\n      data: { ...shape, roomId }\n    });\n    \n    // Broadcast to all room users\n    socket.to(roomId).emit('shape-sync', shape);\n  });\n});"
     },
     demonstrations: [
       {
-        title: "Real-time Collaboration",
-        description: "Multiple users drawing simultaneously with instant synchronization across all connected clients.",
-        image: "/media/screenshots/excelidraw-collaboration.png"
+        title: "Authentication & Room Access",
+        description: "Secure user authentication flow with JWT tokens and room-based collaboration setup: • User registers/signs in with email and password • Backend validates credentials and hashes password using bcrypt with salt rounds • JWT access token generated and sent to client for session management • User creates or joins a collaborative room with unique room ID • WebSocket connection established with JWT token validation • Room user registry updated to track active participants • Canvas initialized with persistent shape history from PostgreSQL database",
+        image: "/media/screenshots/excelidraw-collaboration.png",
+        dashboardImages: [
+          '/media/screenshots/ex1.png',
+          '/media/screenshots/exd1.png',
+        ]
       },
       {
-        title: "Drawing Tools Interface",
-        description: "Comprehensive toolbar with shapes, text, colors, and drawing tools for creating detailed diagrams.",
-        image: "/media/screenshots/excelidraw-tools.png"
+        title: "Room Management & Real-Time Sync",
+        description: "Room-based collaboration system with in-memory user registry and WebSocket broadcasting: • User creates new room or joins existing room using unique room ID • WebSocket server maintains in-memory Map of roomId to Set of connected sockets • When user joins room, socket is added to room's user registry and Socket.IO room • Drawing operations trigger shape-update events with roomId and shape data • Server persists shape to PostgreSQL with Prisma ORM for room history • WebSocket broadcasts shape-sync event to all other users in the same room • Real-time synchronization ensures all participants see updates within <50ms latency",
+        image: "/media/screenshots/excelidraw-tools.png",
+        dashboardImages: [
+          '/media/screenshots/exr1.png',
+          '/media/screenshots/exr2.png',
+        ]
       },
       {
-        title: "Room Management",
-        description: "Create and join collaborative rooms with unique URLs for team collaboration sessions.",
-        image: "/media/screenshots/excelidraw-rooms.png"
+        title: "Canvas Drawing Engine & Shape Management",
+        description: "Multi-tool drawing system with Canvas API manipulation and collision detection: • Canvas context initialized with drawing tools (circles, rectangles, pencil, arrows, lines, text, eraser) • Mouse/touch events captured for drawing operations with coordinate tracking • Shape objects created with properties (type, coordinates, color, strokeWidth, fillColor) • Collision detection algorithm checks for shape intersections and selection boundaries • Drag-and-drop functionality enables shape movement with real-time coordinate updates • Local history stack maintains undo/redo operations for shape modifications • Canvas re-rendering optimized with requestAnimationFrame for smooth 60fps performance",
+        image: "/media/screenshots/excelidraw-rooms.png",
+        dashboardImages: [
+          '/media/screenshots/exc1.png',
+          '/media/screenshots/exc2.png',
+        ]
       }
     ],
     impact: {
       metrics: [
-        { label: "Real-time Latency", value: "<50ms synchronization" },
-        { label: "Concurrent Users", value: "100+ users per room" },
-        { label: "Drawing Performance", value: "60fps smooth rendering" }
+        { label: "WebSocket Synchronization Speed", value: "<50ms real-time latency" },
+        { label: "Collaborative Capacity", value: "Unlimited users per room" },
+        { label: "Data Reliability", value: "100% shape persistence" }
       ],
       outcomes: [
-        "Built scalable real-time collaboration system handling multiple concurrent users",
-        "Implemented conflict resolution preventing data loss during simultaneous edits",
-        "Optimized canvas performance for smooth drawing experience across devices"
+        "Demonstrates expertise in real-time collaborative systems and WebSocket architecture",
+        "Showcases full-stack development with database design using Prisma ORM",
+        "Built scalable multi-user drawing platform with <50ms WebSocket synchronization and persistent PostgreSQL storage",
+        "Implemented Canvas API manipulation with collision detection and drag-and-drop support"
       ]
     },
     githubUrl: "https://github.com/chouhanrahul1999/Exceliodraw",
@@ -142,19 +179,23 @@ export const projects = [
     features: [
       {
         title: "Secure Authentication",
-        description: "JWT-based authentication with multi-factor security measures"
+        description: "JWT-based authentication with multi-factor security measures",
+        icon: "FaLock"
       },
       {
         title: "P2P Transfers",
-        description: "Instant peer-to-peer money transfers with transaction verification"
+        description: "Instant peer-to-peer money transfers with transaction verification",
+        icon: "FaExchangeAlt"
       },
       {
         title: "Bank Integration",
-        description: "Connect and manage multiple bank accounts with secure API integration"
+        description: "Connect and manage multiple bank accounts with secure API integration",
+        icon: "FaUniversity"
       },
       {
         title: "Transaction History",
-        description: "Real-time transaction tracking with detailed history and analytics"
+        description: "Real-time transaction tracking with detailed history and analytics",
+        icon: "FaChartLine"
       }
     ],
     implementation: {
@@ -208,19 +249,23 @@ export const projects = [
     features: [
       {
         title: "Content Organization",
-        description: "Organize YouTube videos, Twitter posts, and articles into structured knowledge bases"
+        description: "Organize YouTube videos, Twitter posts, and articles into structured knowledge bases",
+        icon: "FaBook"
       },
       {
         title: "Dashboard Analytics",
-        description: "Comprehensive dashboard showing learning progress and content statistics"
+        description: "Comprehensive dashboard showing learning progress and content statistics",
+        icon: "FaChartBar"
       },
       {
         title: "Content Management",
-        description: "Add, edit, delete, and categorize learning materials with tags and folders"
+        description: "Add, edit, delete, and categorize learning materials with tags and folders",
+        icon: "FaEdit"
       },
       {
         title: "Sharing System",
-        description: "Share knowledge bases publicly or with specific users with permission controls"
+        description: "Share knowledge bases publicly or with specific users with permission controls",
+        icon: "FaShare"
       }
     ],
     implementation: {
@@ -281,19 +326,23 @@ export const projects = [
     features: [
       {
         title: "Multi-Region Monitoring",
-        description: "Distributed website monitoring across India and USA with 3-minute detection intervals"
+        description: "Distributed website monitoring across India and USA with 3-minute detection intervals",
+        icon: "FaGlobe"
       },
       {
         title: "Dual Event Streaming",
-        description: "Redis Streams for work distribution and Kafka for real-time notification delivery"
+        description: "Redis Streams for work distribution and Kafka for real-time notification delivery",
+        icon: "FaStream"
       },
       {
         title: "Multi-Channel Alerts",
-        description: "Instant notifications via Email, Slack, Discord, Webhook, and Telegram on downtime"
+        description: "Instant notifications via Email, Slack, Discord, Webhook, and Telegram on downtime",
+        icon: "FaBell"
       },
       {
         title: "Scalable Architecture",
-        description: "Containerized microservices with horizontal scaling and consumer group coordination"
+        description: "Containerized microservices with horizontal scaling and consumer group coordination",
+        icon: "FaLayerGroup"
       }
     ],
     implementation: {
@@ -407,19 +456,23 @@ export const projects = [
     features: [
       {
         title: "Visual Workflow Builder",
-        description: "Drag-and-drop interface for creating complex workflows with trigger-action chaining and real-time preview"
+        description: "Drag-and-drop interface for creating complex workflows with trigger-action chaining and real-time preview",
+        icon: "FaSitemap"
       },
       {
         title: "Event-Driven Architecture",
-        description: "Apache Kafka message queues for reliable task distribution and workflow execution"
+        description: "Apache Kafka message queues for reliable task distribution and workflow execution",
+        icon: "FaCogs"
       },
       {
         title: "Microservices Design",
-        description: "Distributed services including API, Hooks, Processor, and Worker for scalable processing"
+        description: "Distributed services including API, Hooks, Processor, and Worker for scalable processing",
+        icon: "FaCubes"
       },
       {
         title: "Webhook Integration",
-        description: "Unique webhook URLs per workflow for external system integrations and triggers"
+        description: "Unique webhook URLs per workflow for external system integrations and triggers",
+        icon: "FaPlug"
       }
     ],
     implementation: {
