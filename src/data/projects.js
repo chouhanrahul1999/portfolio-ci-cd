@@ -500,8 +500,8 @@ export const projects = [
         features: ["Secure signup", "Email verification", "Session management", "Dashboard redirect"],
         signupImages: [
           '/media/screenshots/zd1.png',
-          '/media/screenshots/zdash.png',
-          '/media/screenshots/zt1.png'
+          '/media/screenshots/zd2.png',
+          '/media/screenshots/zd3.png'
         ]
       },
       {
