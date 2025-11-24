@@ -316,11 +316,11 @@ export const projects = [
     description: "Full-stack microservices architecture with dual event streaming using Redis Streams and Kafka for multi-region website monitoring with real-time notifications.",
     image: "/media/screenshots/betteruptime.svg",
     carouselImages: [
-      '/media/screenshots/h1.png',
-      '/media/screenshots/h2.png', 
-      '/media/screenshots/h3.png',
-      '/media/screenshots/h4.png',
-      '/media/screenshots/h5.png'
+      '/media/screenshots/bh1.png',
+      '/media/screenshots/bh2.png', 
+      '/media/screenshots/bh3.png',
+      '/media/screenshots/bh4.png',
+      '/media/screenshots/bh5.png'
     ],
     techStack: betterUptimeTechStack,
     features: [

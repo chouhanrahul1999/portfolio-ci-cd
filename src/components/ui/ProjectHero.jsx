@@ -63,8 +63,8 @@ const ProjectHero = ({ project }) => {
               <div className="absolute -inset-1 bg-gradient-to-br from-[#CBACF9]/40 via-[#38BDF8]/30 to-[#6366F1]/40 rounded-3xl blur opacity-15 group-hover:opacity-25 transition duration-1000"></div>
               <div className="relative bg-gradient-to-br from-[#0C0E23] via-[#0F1419] to-[#161A31] border border-[#363749] rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 lg:p-12">
                 <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
-                  <div>
-                    <div className="bg-gradient-to-br from-[#0F1419]/60 to-[#1A1B3A]/60 rounded-xl p-0. border border-[#363749]/50 relative overflow-hidden">
+                  <div className="w-full max-w-full overflow-hidden">
+                    <div className="bg-gradient-to-br from-[#0F1419]/60 to-[#1A1B3A]/60 rounded-xl p-0. border border-[#363749]/50 relative overflow-hidden w-full">
                       <div className="relative w-full h-48 sm:h-64 lg:h-72 rounded-lg overflow-hidden">
                         {images.map((image, index) => (
                           <div
@@ -78,7 +78,8 @@ const ProjectHero = ({ project }) => {
                             <img
                               src={image}
                               alt={`Project screenshot ${index + 1}`}
-                              className="w-full h-full object-cover rounded-lg"
+                              className="w-full h-full max-w-full max-h-full object-cover rounded-lg"
+                              style={{ maxWidth: '100%', height: '100%', objectFit: 'cover' }}
                               onError={(e) => {
                                 e.target.style.display = 'none';
                               }}

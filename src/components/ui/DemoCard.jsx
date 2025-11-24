@@ -31,19 +31,19 @@ const DemoCard = ({
           <div
             className={`${
               index % 2 === 0 ? "lg:order-2" : "lg:order-1"
-            }`}
+            } w-full max-w-full overflow-hidden`}
           >
-            <div className="relative group/image cursor-pointer">
+            <div className="relative group/image cursor-pointer w-full">
               <div className="absolute -inset-1 bg-gradient-to-r from-[#CBACF9]/25 to-[#38BDF8]/25 rounded-2xl blur-lg opacity-0 group-hover/image:opacity-40 transition-all duration-500"></div>
-              <div className="relative">
+              <div className="relative w-full max-w-full">
                 {/* Browser mockup */}
-                <div className="bg-[#1a1a2e] rounded-t-xl border border-[#363749] border-b-0">
-                  <div className="flex items-center gap-2 px-4 py-3">
-                    <div className="w-3 h-3 bg-red-500/50 rounded-full"></div>
-                    <div className="w-3 h-3 bg-yellow-500/50 rounded-full"></div>
-                    <div className="w-3 h-3 bg-green-500/50 rounded-full"></div>
-                    <div className="flex-1 bg-[#0a0a0a] rounded mx-4 px-3 py-1">
-                      <span className="text-[#C1C2D3]/60 text-xs">
+                <div className="bg-[#1a1a2e] rounded-t-xl border border-[#363749] border-b-0 w-full">
+                  <div className="flex items-center gap-2 px-2 sm:px-4 py-2 sm:py-3">
+                    <div className="w-2 h-2 sm:w-3 sm:h-3 bg-red-500/50 rounded-full flex-shrink-0"></div>
+                    <div className="w-2 h-2 sm:w-3 sm:h-3 bg-yellow-500/50 rounded-full flex-shrink-0"></div>
+                    <div className="w-2 h-2 sm:w-3 sm:h-3 bg-green-500/50 rounded-full flex-shrink-0"></div>
+                    <div className="flex-1 bg-[#0a0a0a] rounded mx-2 sm:mx-4 px-2 sm:px-3 py-1 min-w-0 overflow-hidden">
+                      <span className="text-[#C1C2D3]/60 text-[10px] sm:text-xs truncate block">
                         {demo.url || "localhost:3000"}
                       </span>
                     </div>
@@ -54,7 +54,7 @@ const DemoCard = ({
                 <div
                   className={`${
                     imageType ? "aspect-[5/2.9]" : "aspect-[16/8.75]"
-                  } bg-gradient-to-br from-[#070914] to-[#0F1419] border border-[#363749] border-t-0 overflow-hidden group-hover/image:border-[#CBACF9]/30 transition-all duration-500 relative`}
+                  } bg-gradient-to-br from-[#070914] to-[#0F1419] border border-[#363749] border-t-0 overflow-hidden group-hover/image:border-[#CBACF9]/30 transition-all duration-500 relative w-full`}
                 >
                   {imageType && demo[imageType] ? (
                     <div className="relative w-full h-full">
@@ -70,7 +70,8 @@ const DemoCard = ({
                           <img
                             src={getImagePath(image)}
                             alt={`${imageType} step ${imgIndex + 1}`}
-                            className="w-full h-full object-contain object-top"
+                            className="w-full h-full max-w-full max-h-full object-contain object-top"
+                            style={{ maxWidth: '100%', height: 'auto' }}
                             onError={(e) => {
                               e.target.style.display = "none";
                             }}
@@ -125,18 +126,18 @@ const DemoCard = ({
                 </div>
 
                 {/* Browser bottom status bar */}
-                <div className="bg-[#1a1a2e] rounded-b-xl border border-[#363749] border-t-0">
-                  <div className="flex items-center justify-between px-4 py-3">
-                    <div className="flex items-center gap-3">
-                      <span className="text-[#C1C2D3]/60 text-xs">Done</span>
+                <div className="bg-[#1a1a2e] rounded-b-xl border border-[#363749] border-t-0 w-full">
+                  <div className="flex items-center justify-between px-2 sm:px-4 py-2 sm:py-3">
+                    <div className="flex items-center gap-2 sm:gap-3">
+                      <span className="text-[#C1C2D3]/60 text-[10px] sm:text-xs">Done</span>
                       <div className="w-px h-3 bg-[#363749]/50"></div>
-                      <span className="text-[#C1C2D3]/60 text-xs">Secure</span>
+                      <span className="text-[#C1C2D3]/60 text-[10px] sm:text-xs">Secure</span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <div className="w-16 h-1 bg-[#363749] rounded-full overflow-hidden">
+                      <div className="w-12 sm:w-16 h-1 bg-[#363749] rounded-full overflow-hidden">
                         <div className="w-full h-full bg-gradient-to-r from-[#CBACF9] to-[#38BDF8] rounded-full"></div>
                       </div>
-                      <span className="text-[#C1C2D3]/60 text-xs">100%</span>
+                      <span className="text-[#C1C2D3]/60 text-[10px] sm:text-xs">100%</span>
                     </div>
                   </div>
                 </div>
